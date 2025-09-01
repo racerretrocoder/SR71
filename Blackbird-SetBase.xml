@@ -1,0 +1,600 @@
+<?xml version="1.0"?>
+
+
+<PropertyList>
+
+    <sim>
+			<!-- HUD -->
+		<hud>
+			<path n="1">Aircraft/SR71/HUD.xml</path>
+			<visibility n="1">true</visibility>
+   
+			<palette>
+				<color n="0">
+					<alpha type="float">0.85</alpha>
+					<antialiased type="bool">true</antialiased>
+					<brightness type="float">0.85</brightness>
+					<transparent type="bool">true</transparent>
+					<red type="float">0.38</red>
+					<green type="float">1.0</green>
+					<blue type="float">0.22</blue>
+				</color>
+				<color n="1">
+					<alpha type="float">0.85</alpha>
+					<antialiased type="bool">true</antialiased>
+					<brightness type="float">0.85</brightness>
+					<transparent type="bool">true</transparent>
+					<red type="float">1.0</red>
+					<green type="float">1.0</green>
+					<blue type="float">1.0</blue>
+				</color>
+				<color n="2">
+					<alpha type="float">0.85</alpha>
+					<antialiased type="bool">true</antialiased>
+					<brightness type="float">0.85</brightness>
+					<transparent type="bool">true</transparent>
+					<red type="float">1.0</red>
+					<green type="float">0.2</green>
+					<blue type="float">0.0</blue>
+				</color>
+			</palette>
+   
+		</hud>
+        <systems>
+            <autopilot>
+                <path>Aircraft/SR71/Systems/SR71autopilot.xml</path>
+            </autopilot>
+            <electrical>
+                <path>Aircraft/SR71/Systems/dummy-electrical.xml</path>
+            </electrical>
+            <autoflight>
+                <serviceable type="bool">true</serviceable>
+            </autoflight>
+        </systems>
+        <rendering>
+                <redout>
+                    <red>0</red>
+                    <alpha>0</alpha>
+                    <enabled type="bool">false</enabled>
+                </redout>
+        </rendering>
+        <multiplay>
+		            <visibility-range-nm type="int">1000</visibility-range-nm>
+            <generic>
+                    <float n="0" alias="/surface-positions/gear-pos-norm"/>
+                    <float n="1" alias="/surface-positions/chute-pos-norm"/>
+                    <float n="2" alias="/surface-positions/canopy-pos-norm"/>
+                    <float n="3" alias="/gear/gear[0]/steering-norm"/>
+                    <float n="4" alias="/fdm/jsbsim/fcs/landing-light"/>
+                    <float n="5" alias="/fdm/jsbsim/propulsion/engine[0]/set-thrust"/>
+                    <float n="6" alias="/fdm/jsbsim/propulsion/engine[1]/set-thrust"/>
+                    <float n="7" alias="/engines/engine[0]/nozzle-pos-norm"/>
+                    <float n="8" alias="/engines/engine[1]/nozzle-pos-norm"/>
+					                <int n="0" alias="/instrumentation/datalink/channel"/> <!--Sam Code-->
+                <int n="2" type="int">0</int>
+
+                                <string n="1" type="string"></string><!--string 1 used to determine which UAV goes up to what target-->
+                                <string n="2" type="string"></string><!--string 2 used to determine which UAV goes up to what target-->
+                                <string n="3" type="string"></string><!--string 3 used to determine which UAV goes up to what target-->
+                                <string n="4" type="string"></string><!--string 4 used to determine which UAV goes up to what target-->
+<string n="5" type="string">SAMCTRL</string> <!--Let our sams know where a controller!-->
+                <string n="6" type="string"></string><!--Radar Spike-->
+                <string n="7" type="string"></string><!--datalink-->
+ <string n="8" alias="/enemies/e1"/>
+ <string n="9" alias="/enemies/e2"/>
+<string n="10" alias="/enemies/e3"/>
+<string n="11" alias="/enemies/e4"/>
+<string n="12" alias="/enemies/e5"/>
+<string n="13" alias="/enemies/e6"/> <!--Targets-->
+<string n="14" alias="/enemies/e7"/>
+<string n="15" alias="/enemies/e8"/>
+<string n="16" alias="/enemies/e9"/>
+<string n="17" alias="/enemies/e10"/>
+<string n="18" alias="/enemies/e11"/>
+<string n="19" alias="/enemies/e12"/>
+                    <string n="0"></string>
+            </generic>
+        </multiplay>
+		<failure-manager>
+			<engines>
+				<engine n="0">
+					<serviceable type="bool">true</serviceable>
+				</engine>
+				<engine n="1">
+					<serviceable type="bool">true</serviceable>
+				</engine>
+			</engines>
+		</failure-manager>
+		
+
+		<menubar>
+			<default>
+               <menu n="100">
+                    <label>Advanced Functions</label>
+                    <enabled type="bool">true</enabled>
+
+
+          <!--          <item>
+                        <label>Reload</label>
+                        <binding>
+                            <command>nasal</command>
+                            <script>
+                                fire_control.reload();
+                            </script>
+                        </binding>
+                    </item>-->
+<item>
+        <label>KY-58 Secure MP-Chat (To chat with WSO too)</label>
+        <binding>
+            <command>dialog-show</command>
+            <dialog-name>secure</dialog-name>
+        </binding>
+			</item>
+                    <item>
+                        <label>Enable Extender Mode</label>
+                        <binding>
+                            <command>nasal</command>
+                            <script>
+                    RC.timer_searchSAM.start();
+                            </script>
+                        </binding>
+                    </item>
+                                        <item>
+                        <label>Disable Extender Mode</label>
+                        <binding>
+                            <command>nasal</command>
+                            <script>
+                    RC.timer_searchSAM.stop();
+                            </script>
+                        </binding>
+                    </item>
+                    <item>
+                      <label>Change SCC Targets</label>
+                      <name>enemies</name>
+                      <binding>
+                        <command>dialog-show</command>
+                        <dialog-name>enemies</dialog-name>
+                      </binding>
+                    </item>
+
+                    <item>
+                      <label>Change Sam Control Center Code (Datalink)</label>
+                      <name>enemies</name>
+                      <binding>
+                        <command>dialog-show</command>
+                        <dialog-name>priority</dialog-name>
+                      </binding>
+                    </item>
+                    <item>
+                        <label>SGM Nuclear</label>
+                        <binding>
+                            <command>nasal</command>
+                            <script>
+							missile.MISSILE.TESTSGM(1,0.5,10000,90,180,"ANTI-SAT");
+                            </script>
+                        </binding>
+                    </item>
+    
+                    <item>
+                        <label>Event Log</label>
+                        <binding>
+                            <command>dialog-show</command>
+                            <dialog-name>flightlog</dialog-name>
+                        </binding>
+                    </item>
+                </menu>
+
+
+				<menu n="10">
+					<label>SR-71</label>
+					<enabled type="bool">true</enabled>
+					<item n="0">
+						<label>Sensor Interface</label>
+						<binding>
+							<command>nasal</command>
+							<script>sensors.sensors_dialog.open()</script>
+						</binding>
+					</item>
+					<item n="1">
+					    <label>Event Log</label>
+					    <binding>
+						<command>dialog-show</command>
+						<dialog-name>flightlog</dialog-name>
+					    </binding>
+					</item>
+					<item n="2">
+					    <label>IFF channel</label>
+					    <binding>
+						<command>dialog-show</command>
+						<dialog-name>iff</dialog-name>
+					    </binding>
+						</item>
+					<item n="3">
+						<label>Orbital Trajectory</label>
+						<binding>
+							<command>nasal</command>
+							<script>canvasdl.cdlg_traj_map.init();screen.log.write("If MET freezes, Close and reopen Orbital Trajectory. Make sure you dont show landing sites nor history");</script>
+						</binding>
+					</item>
+				</menu>
+			</default>
+		</menubar>
+		
+        <help include="Help/BlackBird-help.xml"/>
+    </sim>
+
+<orientation>
+            <direction-heading-deg type="double">0.0</direction-heading-deg>
+</orientation>
+
+
+
+    <input include="Inputs/Blackbird-input.xml"/>
+	
+    <environment>
+        <params>
+            <control-fdm-atmosphere type="bool">false</control-fdm-atmosphere>
+        </params>
+    </environment>
+
+    <controls>
+            <isspace type="double">0</isspace>
+            <isorbit type="double">0</isorbit>
+
+        <!-- Start with the Parking Brake on -->
+        <gear>
+            <brake-parking type="double">1.0</brake-parking>
+        </gear>
+	<iff>
+	    <channel type="int">0000</channel>
+	</iff>
+        <switches>
+            <landing-light type="bool">true</landing-light>
+            <master-avionics type="bool">false</master-avionics>
+        </switches>
+
+        <lighting>
+            <instruments-norm type="double">0</instruments-norm>
+        </lighting>
+
+        <engines>
+            <engine n="0">
+                <fuel-pump type="bool">false</fuel-pump>
+                <master-bat type="bool">false</master-bat>
+            </engine>
+            <engine n="1">
+                <fuel-pump type="bool" >false</fuel-pump>
+                 <master-bat type="bool">false</master-bat>
+            </engine>
+        </engines>
+
+        <electric>
+            <master-switch type="bool">false</master-switch>
+            <battery-switch type="bool">false</battery-switch>
+            <external-power type="bool" >false</external-power>
+        </electric>
+
+        <flight>
+            <JAL type="double">0</JAL>
+            <canopy type="bool">true</canopy>
+            <op-refuel type="double">0</op-refuel>
+        </flight>
+        <jettison>
+            <canopy type="float">0</canopy>
+        </jettison>
+		<sensors>
+			<recording type="bool">0</recording> <!-- turns recording on or off -->
+			<mode type="string">SLR</mode> <!-- possible modes (for now) are SLR and OBC -->
+			<log-count type="int">0</log-count>
+			<ready-write type="bool">0</ready-write>
+			<!-- OBC -->
+			<obc>
+				<output-rate type="int">10</output-rate>
+				<exposures-remaining type="int">350</exposures-remaining>
+			</obc>
+			<!-- SLR -->
+			<slr>
+				<output-rate type="int">5</output-rate>
+				<exposures-remaining type="int">800</exposures-remaining>
+				<mode type="string">manual</mode>
+				<operate type="string">cold</operate>
+				<stab type="string">r</stab>
+				<srv type="string">r</srv>
+				<start-range type="int">10</start-range>
+				<side type="string">left</side>
+				<width type="string">narrow</width>
+			</slr>
+		<awacs>
+				<inthead type="int">5</inthead>
+		</awacs>
+		</sensors>
+
+    </controls>
+  <position>
+   <sea-level-radius-ft>26000000.0</sea-level-radius-ft>
+  </position>
+    <engines>
+        <engine n="0">
+                    <running>false</running>
+					<teb-shots type="int">16</teb-shots>
+					<aug-avail type="bool">true</aug-avail>
+        </engine>
+        <engine n="1">
+                    <running>false</running>
+					<teb-shots type="int">16</teb-shots>
+					<aug-avail type="bool">true</aug-avail>
+        </engine>
+    </engines>
+	
+		<consumables n="0">
+		<fuel>
+			<tank n="0">
+				<name>Right Fuel Manifold</name>
+			</tank>
+			<tank n="1">
+				<name>Left Fuel Manifold</name>
+			</tank>
+			<tank n="2">
+				<name>Tank 1A</name>
+			</tank>
+			<tank n="3">
+				<name>Tank 1</name>
+			</tank>
+			<tank n="4">
+				<name>Tank 2</name>
+			</tank>
+			<tank n="5">
+				<name>Tank 3</name>
+			</tank>
+			<tank n="6">
+				<name>Tank 4</name>
+			</tank>
+			<tank n="7">
+				<name>Tank 5</name>
+			</tank>
+			<tank n="8">
+				<name>Tank 6A</name>
+			</tank>
+			<tank n="9">
+				<name>Tank 6B</name>
+			</tank>
+		</fuel>
+	</consumables>
+	
+
+    <autopilot>
+            <settings>
+                    <target-altitude-ft type="float">33000</target-altitude-ft>
+                    <target-pushover-altitude-ft type="float">30000</target-pushover-altitude-ft>
+                    <target-aoa-deg type="float">0.3</target-aoa-deg>
+                    <target-pitch-deg type="float">10</target-pitch-deg>
+                    <true-heading-deg>180</true-heading-deg>
+            </settings>
+    </autopilot>
+
+    <instrumentation>
+	<iff>
+	    <power_prop type="string">instrumentation/iff/power</power_prop>
+	    <channel_prop
+		type="string">instrumentation/iff/channel</channel_prop>
+	    <channel type="int">0000</channel>
+	    <power type="bool">true</power>
+	</iff>
+	        <datalink>
+            <data type="int">0</data>
+            <power type="bool">true</power>
+            <channel type="int">1212</channel>
+            <power_prop type="string">/instrumentation/datalink/power</power_prop>
+            <channel_prop type="string">instrumentation/datalink/channel</channel_prop>
+            <receive_period type="double">1</receive_period>
+        </datalink>
+            <wxradar>
+                <switch type="string" archive="y">ON</switch>
+                <mode-control type="int" archive="y">1</mode-control>
+                <display-controls>
+                        <WX type="bool" archive="y">true</WX>
+                        <centre type="bool"  archive="y">true</centre>
+                        <data type="bool"  archive="y">false</data>
+                        <pos type="bool" archive="y">false</pos>
+                        <rotate type="bool" archive="y">true</rotate>
+                        <symbol type="bool" archive="y">true</symbol>
+                </display-controls>
+                <serviceable type="bool">true</serviceable>
+                <range type="int"  archive="y">40</range>
+                <mode type="string" archive="y">WX</mode>
+                <lightning type="bool"  archive="y">false</lightning>
+                <display-mode type="string"  archive="y">plan</display-mode>
+                <minimized type="bool" archive="y">false</minimized>
+            </wxradar>
+			<radar>
+				<range type="int" archive="y">20</range>
+				<minimized type="bool" archive="y">false</minimized>
+			</radar>
+			<efis>
+				<inputs>
+					<arpt type="bool">true</arpt> <!-- show airports -->
+					<range-nm type="int">120</range-nm> <!-- range set to 120nm. May allow to be toggleable later. -->
+					<nd-centered type="bool">false</nd-centered>
+					<data type="bool">true</data>
+					<lh-vor-adf type="int">0</lh-vor-adf>
+					<rh-vor-adf type="int">0</rh-vor-adf>
+					<pos type="bool">false</pos>
+					<sta type="bool">true</sta>
+					<terr type="bool">false</terr>
+					<tfc type="bool">false</tfc>
+					<wpt type="bool">true</wpt>
+					<wxr type="bool">false</wxr>
+				</inputs>
+				<mfd>
+					<display-mode type="string">PLAN</display-mode>
+					<display-type type="string">CRT</display-type>
+					<rangearc type="bool">false</rangearc>
+					<true-north type="bool">false</true-north>
+				</mfd>
+				<hdg-trk-selected type="bool">false</hdg-trk-selected>
+				<hdg-bug-only type="bool">false</hdg-bug-only>
+			</efis>
+			<teb>
+				<display n="0" type="int">16</display>
+				<display n="1" type="int">16</display>
+			</teb>
+    </instrumentation>
+	
+	
+
+    <fdm><!-- Start with Canopy open -->
+            <jsbsim>
+                    <fcs>
+                            <canopy-cmd-norm>1</canopy-cmd-norm>
+                    </fcs>
+                    <systems>
+						     <orbital>
+      <gm type="double">14.07644180e15</gm>
+      <semimajor-axis-length-ft type="double">0.0</semimajor-axis-length-ft>
+      <eccentricity type="double">0.0</eccentricity>
+      <apoapsis-ft type="double">0.0</apoapsis-ft>
+      <apoapsis-km type="double">0.0</apoapsis-km>
+      <apoapsis-indicated-km type="double">0.0</apoapsis-indicated-km>
+      <apoapsis-hunderds-km type="double">0.0</apoapsis-hunderds-km>
+      <apoapsis-tens-km type="double">0.0</apoapsis-tens-km>
+      <apoapsis-ones-km type="double">0.0</apoapsis-ones-km>
+      <periapsis-ft type="double">0.0</periapsis-ft>
+      <periapsis-km type="double">0.0</periapsis-km>
+      <periapsis-indicated-km type="double">0.0</periapsis-indicated-km>
+      <periapsis-hunderds-km type="double">0.0</periapsis-hunderds-km>
+      <periapsis-tens-km type="double">0.0</periapsis-tens-km>
+      <periapsis-ones-km type="double">0.0</periapsis-ones-km>
+     </orbital>
+                        <lighting-instruments-norm>0.3</lighting-instruments-norm>
+                    </systems>
+            </jsbsim>
+    </fdm>
+
+	<systems>
+
+		<refuel>
+			<type>boom</type>
+			<serviceable type="bool">true</serviceable>
+			<max-fuel-transfer-lbs-min>6000</max-fuel-transfer-lbs-min>
+			<offset-x-m>0</offset-x-m>
+			<offset-y-m>0</offset-y-m>
+			<offset-z-m>0</offset-z-m>
+		</refuel>
+	</systems>
+
+	<payload>
+	    <armament>
+		<models type="string">Aircraft/SR71/Models/Armament/</models>
+		<msg type="bool">true</msg>
+		<spectator type="bool">false</spectator>
+		<MLW-bearing type="double">0</MLW-bearing>
+		<MLW-count type="int">0</MLW-count>
+		<MLW-launcher type="string"></MLW-launcher>
+		<MAW-bearing type="double">0</MAW-bearing>
+		<MAW-active type="bool">false</MAW-active>
+		<spike type="bool">false</spike>
+		<enable-craters type="bool">true</enable-craters>
+	    </armament>
+        <d-config>
+            <full_damage_dist_m type="double">-1</full_damage_dist_m>
+            <use_hitpoints_instead_of_failure_modes_bool type="bool">false</use_hitpoints_instead_of_failure_modes_bool>
+            <hp_max type="double">100</hp_max>
+            <hitable_by_air_munitions type="bool">true</hitable_by_air_munitions>
+            <hitable_by_cannon type="bool">true</hitable_by_cannon>
+            <is_fleet type="bool">false</is_fleet>
+            <rwr_to_screen type="bool">true</rwr_to_screen>
+            <rwr_audio_extended type="bool">true</rwr_audio_extended>
+            <tacview_supported type="bool">false</tacview_supported>
+            <m28_auto type="bool">false</m28_auto>
+            <mlw_max type="double">0</mlw_max>
+            <auto_flare_caller type="bool">false</auto_flare_caller>
+		</d-config>
+		<!-- Yep. this should go here... -->
+	
+
+	</payload>
+	
+	<nasal>
+	        <notifications>
+		    <file>Aircraft/SR71/Nasal/ArmamentNotification.nas</file>
+		    <file>Aircraft/SR71/Nasal/GeoBridgedTransmitter.nas</file>
+		</notifications>
+
+			<space>
+				<file>Aircraft/SR71/Nasal/space.nas</file>
+			</space>
+			<sr71>
+				<file>Aircraft/SR71/Nasal/sr71.nas</file>
+			</sr71>
+			<radar_logic>
+				<file>Aircraft/SR71/Nasal/radar-logic.nas</file>
+			</radar_logic>
+			<sensors>
+				<file>Aircraft/SR71/Nasal/sensor_control.nas</file>
+			</sensors>
+			<terrain>
+				<file>Aircraft/SR71/Nasal/terrain.nas</file>
+			</terrain>
+			<aar>
+				<file>Aircraft/SR71/Nasal/aar.nas</file>
+			</aar>
+			<damage>
+				<file>Aircraft/SR71/Nasal/damage.nas</file>
+			</damage>
+			<orbit>
+				<file>Aircraft/SR71/Nasal/autoorbit.nas</file>
+			</orbit>
+			<nav_display>
+				<file>Aircraft/SR71/Models/Instruments/NavDisplay/nd.nas</file>
+			</nav_display>
+        <crashandstress>
+	    <file>Aircraft/SR71/Nasal/crash-and-stress.nas</file>
+	</crashandstress>    <!-- plane go boom when crash -->
+	<iff>
+	    <file>Aircraft/SR71/Nasal/iff.nas</file>
+	</iff>
+
+	<datalink>
+<file>Aircraft/SR71/Nasal/datalink.nas</file>
+</datalink>
+
+
+
+  <SpaceShuttle>	
+   <file>Aircraft/SR71/Nasal/canvasdraw.nas</file>
+   <file>Aircraft/SR71/Nasal/coordinates.nas</file>
+  </SpaceShuttle>
+
+
+	<canvasdl>
+<file>Aircraft/SR71/Nasal/trajmap.nas</file>
+   <file>Aircraft/SR71/Nasal/canvaswidgits.nas</file>   
+</canvasdl>
+		<KY58>
+			<file>Aircraft/SR71/Nasal/secure.nas</file>
+		</KY58>
+
+
+			<drone>
+			<file>Aircraft/SR71/Nasal/drone.nas</file>
+		</drone>
+    </nasal>
+	
+	<!-- setting up properties for later -->
+	<fdm n="0">
+		<jsbsim>
+			<fcs>
+				<fuel-pump0>0</fuel-pump0>
+				<fuel-pump1>0</fuel-pump1>
+			</fcs>
+			<structural>
+				<wings>
+					<serviceable type="bool">true</serviceable>
+				</wings>
+			</structural>
+		</jsbsim>
+	</fdm>
+
+</PropertyList>
+
+

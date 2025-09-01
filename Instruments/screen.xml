@@ -1,0 +1,365 @@
+<?xml version="1.0"?>
+<!--
+    Usable with FlightGear
+    Property of Gerard Robin
+    Copyright License:  GPL
+-->
+<PropertyList>
+
+    <path>Models/screen.ac</path>
+    <texture-path>Models/Textures</texture-path>
+    <model>
+        <name>PanelV</name>
+        <path>Aircraft/SR71/Models/AI.xml</path>
+        <offsets>
+  <x-m>-1.70</x-m>
+   <y-m>-0.25</y-m>
+   <z-m>0.1</z-m>
+
+        </offsets>
+    </model>
+
+
+
+
+ <animation>
+  <type>material</type>
+            <object-name>ap</object-name>
+            <object-name>pe</object-name>
+  <ambient>
+    <red>0.0</red>
+    <green>0.8</green>
+    <blue>1.0</blue>
+  </ambient>
+  <diffuse>
+    <red>0.0</red>
+    <green>0.0</green>
+    <blue>0.1</blue>
+  </diffuse>
+  <emission>
+    <red>0.3</red>
+    <green>0.5</green>
+    <blue>0.8</blue>
+  </emission> 
+ </animation>
+
+
+	 <text>
+  <name>pe</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0056</character-size>
+  <offsets>
+  <x-m>-1.70</x-m>
+   <y-m>-0.1</y-m>
+   <z-m>0.147</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">number-value</type>
+   <format type="string">PERIAPSIS %5.f</format>
+  <truncate type="bool">true</truncate>
+  <property>fdm/jsbsim/systems/orbital/periapsis-ft</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+
+	 <text>
+  <name>ap</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0056</character-size>
+  <offsets>
+  <x-m>-1.70</x-m>
+   <y-m>-0.17</y-m>
+   <z-m>0.147</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">number-value</type>
+   <format type="string">APOAPSIS %5.f</format>
+  <truncate type="bool">true</truncate>
+  <property>fdm/jsbsim/systems/orbital/apoapsis-ft</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+	 <text>
+  <name>ap</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0056</character-size>
+  <offsets>
+  <x-m>-1.70</x-m>
+   <y-m>-0.17</y-m>
+   <z-m>0.157</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">number-value</type>
+   <format type="string">ORBIT TIME SECONDS %5.f</format>
+  <truncate type="bool">true</truncate>
+  <property>fdm/jsbsim/systems/orbital/orbital-period-s</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+	 <text>
+  <name>ap</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0056</character-size>
+  <offsets>
+  <x-m>-1.70</x-m>
+   <y-m>-0.17</y-m>
+   <z-m>0.137</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">number-value</type>
+   <format type="string">COR %5.f</format>
+  <truncate type="bool">true</truncate>
+  <property>fdm/jsbsim/velocities/course-deg</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+
+ 	 <text>
+  <name>ap</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0056</character-size>
+  <offsets>
+  <x-m>-1.70</x-m>
+   <y-m>-0.1</y-m>
+   <z-m>0.137</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">number-value</type>
+   <format type="string">V/S FPM %5.f</format>
+  <truncate type="bool">true</truncate>
+  <property>autopilot/internal/vert-speed-fpm</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+
+ 	 <text>
+  <name>ap</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0056</character-size>
+  <offsets>
+  <x-m>-1.70</x-m>
+   <y-m>-0.1</y-m>
+   <z-m>0.127</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">number-value</type>
+   <format type="string">MACH %5.2lf</format>
+  <truncate type="bool">false</truncate>
+  <property>velocities/mach</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+ 	 <text>
+  <name>ap</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0056</character-size>
+  <offsets>
+  <x-m>-1.70</x-m>
+   <y-m>-0.17</y-m>
+   <z-m>0.127</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">number-value</type>
+   <format type="string">BETA %5.2lf</format>
+  <truncate type="bool">false</truncate>
+  <property>orientation/side-slip-deg</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+<!--eng-->
+	 <text>
+  <name>ap</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0056</character-size>
+  <offsets>
+  <x-m>-1.70</x-m>
+   <y-m>-0.46</y-m>
+   <z-m>0.157</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">number-value</type>
+   <format type="string">N1 %5.2lf</format>
+  <truncate type="bool">false</truncate>
+  <property>engines/engine/n1</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+	 <text>
+  <name>ap</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0056</character-size>
+  <offsets>
+  <x-m>-1.70</x-m>
+   <y-m>-0.46</y-m>
+   <z-m>0.147</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">number-value</type>
+   <format type="string">N2 %5.2lf</format>
+  <truncate type="bool">false</truncate>
+  <property>engines/engine/n2</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+	 <text>
+  <name>ap</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0056</character-size>
+  <offsets>
+  <x-m>-1.70</x-m>
+   <y-m>-0.37</y-m>
+   <z-m>0.157</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">number-value</type>
+   <format type="string">N1 %5.2lf</format>
+  <truncate type="bool">false</truncate>
+  <property>engines/engine[1]/n1</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+	 <text>
+  <name>ap</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0056</character-size>
+  <offsets>
+  <x-m>-1.70</x-m>
+   <y-m>-0.37</y-m>
+   <z-m>0.147</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">number-value</type>
+   <format type="string">N2 %5.2lf</format>
+  <truncate type="bool">false</truncate>
+  <property>engines/engine[1]/n2</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+
+
+
+	 <text>
+  <name>ap</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0056</character-size>
+  <offsets>
+  <x-m>-1.70</x-m>
+   <y-m>-0.368</y-m>
+   <z-m>0.1</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">number-value</type>
+   <format type="string">AS %5.2lf</format>
+  <truncate type="bool">false</truncate>
+  <property>velocities/airspeed-kt</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+	 <text>
+  <name>ap</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0056</character-size>
+  <offsets>
+  <x-m>-1.70</x-m>
+   <y-m>-0.368</y-m>
+   <z-m>0.107</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">number-value</type>
+   <format type="string">IAS %5.2lf</format>
+  <truncate type="bool">false</truncate>
+  <property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+	 <text>
+  <name>ap</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0056</character-size>
+  <offsets>
+  <x-m>-1.70</x-m>
+   <y-m>-0.38</y-m>
+   <z-m>0.114</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">number-value</type>
+   <format type="string">GNS %5.2lf</format>
+  <truncate type="bool">false</truncate>
+  <property>/velocities/groundspeed-kt</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+ 	 <text>
+  <name>ap</name>
+  <font>condensed.txf</font>
+  <character-size type="double">0.0056</character-size>
+  <offsets>
+  <x-m>-1.70</x-m>
+   <y-m>-0.1</y-m>
+   <z-m>0.117</z-m>
+  </offsets>
+  <axis-alignment>yz-plane</axis-alignment>
+   <type type="string">number-value</type>
+   <format type="string">ALT %5.2lf FT</format>
+  <truncate type="bool">false</truncate>
+  <property>/position/altitude-ft</property>
+  <draw-text type="bool">true</draw-text>
+  <alignment>left-top</alignment>
+ </text>
+
+
+
+
+ <animation>
+        <type>select</type>
+        <object-name>descend</object-name>
+        <condition>
+        <less-than>
+       <property>autopilot/internal/vert-speed-fpm</property>
+        <value>0</value>
+        </less-than>
+        </condition>
+</animation>
+
+ <animation>
+        <type>select</type>
+        <object-name>ascend</object-name>
+        <condition>
+        <greater-than>
+       <property>autopilot/internal/vert-speed-fpm</property>
+        <value>0</value>
+        </greater-than>
+        </condition>
+</animation>
+
+
+ <animation>
+        <type>select</type>
+        <object-name>orbit</object-name>
+        
+        <condition>
+       <property>controls/isorbit</property>
+        </condition>
+    </animation>
+
+ <animation>
+        <type>select</type>
+        <object-name>inspace</object-name>
+        
+        <condition>
+       <property>controls/isspace</property>
+        </condition>
+    </animation>
+</PropertyList>

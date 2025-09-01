@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <sim>
+
+    <description>XSR-71A Laser Weapon Controller</description>
+    <author>Phoenix</author>
+    <aircraft-version>0.3.0</aircraft-version>
+    <status>Alpha</status>
+
+    
+    <flight-model>null</flight-model>
+    <aero>SR71-jsb</aero>
+
+    <startup>
+
+    </startup>
+
+
+    <model>
+      <path>Aircraft/SR71/Models/XSR_LASER_UNIT.xml</path>
+    </model>
+
+    <multiplay>
+      <chat_display>1</chat_display>
+      <generic>
+
+                <float n="3" type="float" alias="/controls/flight/elevator"/>
+                <float n="4" type="float" alias="/controls/flight/aileron"/> 
+                <float n="6" type="float" alias="/controls/engines/engine/throttle"/> 
+                <float n="5" type="float" alias="/controls/flight/rudder"/> 
+      </generic>
+    </multiplay>
+        <view>
+                <name>RSO</name>
+                <type>lookfrom</type>
+                <internal archive="y">true</internal>
+                <config>
+                        <from-model type="bool">true</from-model>
+                        <from-model-idx type="int">0</from-model-idx>
+                        <ground-level-nearplane-m type="double">0.05f</ground-level-nearplane-m>
+                        <default-field-of-view-deg type="double">68.0</default-field-of-view-deg>
+                        <default-pitch-deg type="double">0</default-pitch-deg>
+                        <default-heading-deg type="double">0</default-heading-deg>
+                        <front-direction-deg type="double">0</front-direction-deg>
+                        <front-left-direction-deg type="double">45</front-left-direction-deg>
+                        <left-direction-deg type="double">90</left-direction-deg>
+                        <back-left-direction-deg type="double">135</back-left-direction-deg>
+                        <back-direction-deg type="double">180</back-direction-deg>
+                        <back-right-direction-deg type="double">225</back-right-direction-deg>
+                        <right-direction-deg type="double">270</right-direction-deg>
+                        <front-right-direction-deg type="double">315</front-right-direction-deg>
+                        <x-offset-m archive="y">0.0</x-offset-m>
+                        <y-offset-m archive="y">1.43</y-offset-m>
+                        <z-offset-m archive="y">-11.80</z-offset-m>
+                        <pitch-offset-deg>0</pitch-offset-deg>
+                        <default-field-of-view-deg>68</default-field-of-view-deg>
+                </config>
+        </view>
+
+
+
+  <menubar>
+      <default>
+    <menu n="100">
+      <label>Blackbird Copilot</label>
+      <enabled type="bool">true</enabled>
+      <item>
+        <label>Select MP-pilot</label>
+        <binding>
+          <command>nasal</command>
+          <script>
+            dual_control_tools.
+            copilot_dialog.show(aircraft_dual_control.pilot_type);
+          </script>
+        </binding>
+      </item>
+    </menu>
+    </default>
+  </menubar>
+  </sim>
+
+  <controls>
+         <weapontype type="double">1</weapontype>
+
+    <glass-effect type="bool">1</glass-effect>
+
+  </controls>
+
+
+
+  <instrumentation>
+
+<radar>
+
+  <range type="int" archive="y">40</range>
+  <range-factor type="double" archive="n">0.001888</range-factor>
+  <minimized type="bool" archive="y">false</minimized>
+  <selected type="int">2</selected>
+  <lock type="int">0</lock>
+  <lock2 type="int">0</lock2>
+  <threat-spotted type="int">0</threat-spotted> <!--for lockhelper.nas-->
+      <!-- inicio en pruebas -->
+  <enabled type="bool">0</enabled>
+  <grid type="bool">1</grid>
+  <az-field type="double">360</az-field>
+
+  <range type="double">150</range>
+  <range-selected type="double">50</range-selected>
+  <radar2-range type="double">150</radar2-range>
+  <display-rdr type="bool">true</display-rdr>
+  <radar-standby type="int">0</radar-standby>
+<mode>
+  <rws type="bool">true</rws>
+  <tws-auto type="bool">false</tws-auto>
+    <main type="int">0</main> <!--0 TWS 1 RWS 2 Custom-->
+</mode>
+
+</radar> 
+
+
+  <radar2>
+  <direction type="double">0</direction>
+	<lockmarker type="double">0</lockmarker>
+   <sweep-width-m type="double">0.0844</sweep-width-m>
+   <range-width-m type="double">0.0846</range-width-m>
+   <radius-ppi-display-m type="double">0.0846</radius-ppi-display-m>
+   <hud-eye-dist-m type="double">0.6705</hud-eye-dist-m>
+   <hud-radius-m type="double">0.071</hud-radius-m>
+   <sweep-speed type="double">1.5</sweep-speed>
+   <!--RWS Mode to start-->
+   <sweep-display-width type="double">0.0846</sweep-display-width>
+   <hud>
+    <target type="bool">1</target>
+   </hud>
+   <targets>
+    <aircraft n="0">
+      <display type="bool">1</display>
+      <x-shift type="double"/>
+      <y-shift type="double"/>
+      <rotation type="double"/>
+      <closure-last-time type="double"/>
+    </aircraft>
+    <aircraft n="1">
+      <display type="bool">1</display>
+      <x-shift type="double"/>
+      <y-shift type="double"/>
+      <rotation type="double"/>
+      <closure-last-time type="double"/>
+    </aircraft>
+    <aircraft n="2">
+      <display type="bool">1</display>
+      <x-shift type="double"/>
+      <y-shift type="double"/>
+      <rotation type="double"/>
+      <closure-last-time type="double"/>
+    </aircraft>
+    <aircraft n="3">
+      <display type="bool">1</display>
+      <x-shift type="double"/>
+      <y-shift type="double"/>
+      <rotation type="double"/>
+      <closure-last-time type="double"/>
+    </aircraft>
+    <aircraft n="4">
+      <display type="bool">1</display>
+      <x-shift type="double"/>
+      <y-shift type="double"/>
+      <rotation type="double"/>
+      <closure-last-time type="double"/>
+    </aircraft>
+    <aircraft n="5">
+      <display type="bool">1</display>
+      <x-shift type="double"/>
+      <y-shift type="double"/>
+      <rotation type="double"/>
+      <closure-last-time type="double"/>
+    </aircraft>
+    <aircraft n="6">
+      <display type="bool">1</display>
+      <x-shift type="double"/>
+      <y-shift type="double"/>
+      <rotation type="double"/>
+      <closure-last-time type="double"/>
+    </aircraft>
+    <aircraft n="7">
+      <display type="bool">1</display>
+      <x-shift type="double"/>
+      <y-shift type="double"/>
+      <rotation type="double"/>
+      <closure-last-time type="double"/>
+    </aircraft>
+   </targets>
+  </radar2>
+
+
+    <rdf>
+      <power-on>0</power-on>
+      <frequency-select-knob>0</frequency-select-knob>
+      <headset>
+        <enabled type="bool">0</enabled>
+        <!-- properties swap if pilot fit headset -->
+        <atc-enabled type="bool">1</atc-enabled>
+        <atc-volume type="double">0.7</atc-volume>
+        <avionics-enabled type="bool">1</avionics-enabled>
+        <avionics-volume type="double">1.0</avionics-volume>
+        <chatter-enabled type="bool">0</chatter-enabled>
+        <chatter-volume type="double">0.0</chatter-volume>
+        <effects-enabled type="bool">1</effects-enabled>
+        <effects-volume type="double">0.08</effects-volume>
+        <master-enabled type="bool">1</master-enabled>
+        <master-volume type="double">0.7</master-volume>
+        <adf-ident-audible type="bool">1</adf-ident-audible>
+        <adf-volume-norm type="double">0.7</adf-volume-norm>
+        <nav-audio-btn type="bool">1</nav-audio-btn>
+        <nav-volume type="double">0.7</nav-volume>
+      </headset>
+    </rdf>
+    <adf>
+      <power-btn type="bool">0</power-btn>
+    </adf>
+  </instrumentation>
+
+<input>
+<keyboard>
+<key n="101">
+  <name>e</name>
+  <desc>Fire selected WCS weapon</desc>
+  <binding>
+    <command>nasal</command>
+    <script>setprop("controls/armament/trigger",1);</script>
+  </binding>
+  <mod-up>
+    <binding>
+      <command>nasal</command>
+      <script>setprop("/controls/armament/trigger",0);</script>
+    </binding>
+  </mod-up>
+ </key>
+
+
+	 <key n="114">
+  <name>r</name>
+  <desc>Switch Radar Range</desc>
+  <binding>
+ <command>nasal</command>
+ <script>radar.switch_distance();screen.log.write("Radar Range: " ~ weapons.myRadar.rangeTab[radar.rangeIndex] ~ "nm.",1,1,0);</script>
+</binding>
+ </key> 
+<key n="121">
+  <name>y</name>
+  <desc>select target</desc>
+  <binding>
+ <command>nasal</command>
+ <script>radar.next_Target_Index();</script>
+</binding>
+
+</key>
+
+
+ </keyboard>
+
+ </input>
+
+	<payload>
+	    <armament>
+		<models type="string">Aircraft/SR71/Models/Armament/</models>
+		<msg type="bool">true</msg>
+		<spectator type="bool">false</spectator>
+		<MLW-bearing type="double">0</MLW-bearing>
+		<MLW-count type="int">0</MLW-count>
+		<MLW-launcher type="string"></MLW-launcher>
+		<MAW-bearing type="double">0</MAW-bearing>
+		<MAW-active type="bool">false</MAW-active>
+		<spike type="bool">false</spike>
+		<enable-craters type="bool">true</enable-craters>
+	    </armament>
+        <d-config>
+            <full_damage_dist_m type="double">-4</full_damage_dist_m>
+            <use_hitpoints_instead_of_failure_modes_bool type="bool">false</use_hitpoints_instead_of_failure_modes_bool>
+            <hp_max type="double">500</hp_max>
+            <hitable_by_air_munitions type="bool">true</hitable_by_air_munitions>
+            <hitable_by_cannon type="bool">true</hitable_by_cannon>
+            <is_fleet type="bool">false</is_fleet>
+            <rwr_to_screen type="bool">true</rwr_to_screen>
+            <rwr_audio_extended type="bool">true</rwr_audio_extended>
+            <tacview_supported type="bool">false</tacview_supported>
+            <m28_auto type="bool">false</m28_auto>
+            <mlw_max type="double">0</mlw_max>
+            <auto_flare_caller type="bool">false</auto_flare_caller>
+		</d-config>
+		<!-- Yep. this should go here... -->
+	
+
+	</payload>
+
+  <nasal>
+
+	        <notifications>
+		    <file>Aircraft/SR71/Nasal/ArmamentNotification.nas</file>
+		    <file>Aircraft/SR71/Nasal/GeoBridgedTransmitter.nas</file>
+		</notifications>
+			<damage>
+				<file>Aircraft/SR71/Nasal/damage.nas</file>
+			</damage>
+  <!--   <copilot>
+      <file>Aircraft/SR71/Nasal/copilot.nas</file>
+    </copilot>-->
+    <dual_control_tools>
+      <file>Aircraft/Generic/DualControl/dual-control-tools.nas</file>
+    </dual_control_tools>
+    <aircraft_dual_control>
+      <file>Aircraft/SR71/Nasal/sr71-var.nas</file>
+    </aircraft_dual_control>
+    <dual_control>
+      <file>Aircraft/Generic/DualControl/copilot-dual-control.nas</file>
+    </dual_control>
+			<radar>
+				<file>Aircraft/SR71/Nasal/radar2.nas</file>
+			</radar>
+
+			<weapons>
+				<file>Aircraft/SR71/Nasal/XSRWEAPON.nas</file>
+			</weapons>
+
+  </nasal>
+
+</PropertyList>
