@@ -70,28 +70,48 @@
                     <float n="6" alias="/fdm/jsbsim/propulsion/engine[1]/set-thrust"/>
                     <float n="7" alias="/engines/engine[0]/nozzle-pos-norm"/>
                     <float n="8" alias="/engines/engine[1]/nozzle-pos-norm"/>
+                    <float n="9" alias="/velocities/mach"/>
+					<float n="10" alias="/velocities/down-relground-fps"/>
+					<float n="11" alias="/velocities/east-relground-fps"/>
+					<float n="12" alias="/velocities/north-relground-fps"/>
+					<float n="13" alias="/velocities/speed-down-fps"/>
+					<float n="14" alias="/velocities/speed-east-fps"/>
+					<float n="15" alias="/velocities/speed-north-fps"/>
+					<float n="16" alias="/velocities/uBody-fps"/>
+					<float n="17" alias="/velocities/vBody-fps"/>
+					<float n="18" alias="/velocities/wBody-fps"/>
+
+					<!-- Payload bay  
+					
+					
+					
+					
+					
+	setprop("velocities/down-relground-fps",getprop("payload/orbiter/down-relground-fps"));
+    setprop("velocities/east-relground-fps",getprop("payload/orbiter/east-relground-fps"));
+    setprop("velocities/north-relground-fps",getprop("payload/orbiter/north-relground-fps"));
+    setprop("velocities/speed-down-fps",getprop("payload/orbiter/speed-down-fps"));
+    setprop("velocities/speed-east-fps",getprop("payload/orbiter/speed-east-fps"));
+    setprop("velocities/speed-north-fps",getprop("payload/orbiter/speed-north-fps"));
+    setprop("velocities/uBody-fps",getprop("payload/orbiter/uBody-fps"));
+    setprop("velocities/vBody-fps",getprop("payload/orbiter/vBody-fps"));
+   #setprop("velocities/vertical-speed-fps",getprop("payload/orbiter/vertical-speed-fps"));
+    setprop("velocities/wBody-fps",getprop("payload/orbiter/wBody-fps"));
+    setprop("velocities/mach",getprop("payload/orbiter/mach")); # should be last
+					
+					
+					
+					
+					
+					
+					-->
+
+
 					                <int n="0" alias="/instrumentation/datalink/channel"/> <!--Sam Code-->
                 <int n="2" type="int">0</int>
 
-                                <string n="1" type="string"></string><!--string 1 used to determine which UAV goes up to what target-->
-                                <string n="2" type="string"></string><!--string 2 used to determine which UAV goes up to what target-->
-                                <string n="3" type="string"></string><!--string 3 used to determine which UAV goes up to what target-->
-                                <string n="4" type="string"></string><!--string 4 used to determine which UAV goes up to what target-->
-<string n="5" type="string">SAMCTRL</string> <!--Let our sams know where a controller!-->
                 <string n="6" type="string"></string><!--Radar Spike-->
                 <string n="7" type="string"></string><!--datalink-->
- <string n="8" alias="/enemies/e1"/>
- <string n="9" alias="/enemies/e2"/>
-<string n="10" alias="/enemies/e3"/>
-<string n="11" alias="/enemies/e4"/>
-<string n="12" alias="/enemies/e5"/>
-<string n="13" alias="/enemies/e6"/> <!--Targets-->
-<string n="14" alias="/enemies/e7"/>
-<string n="15" alias="/enemies/e8"/>
-<string n="16" alias="/enemies/e9"/>
-<string n="17" alias="/enemies/e10"/>
-<string n="18" alias="/enemies/e11"/>
-<string n="19" alias="/enemies/e12"/>
                     <string n="0"></string>
             </generic>
         </multiplay>
@@ -112,6 +132,14 @@
                <menu n="100">
                     <label>Advanced Functions</label>
                     <enabled type="bool">true</enabled>
+                                        <item>
+                      <label>KY-58 Secure MP-Chat Config</label>
+                      <name>enemies</name>
+                      <binding>
+                        <command>dialog-show</command>
+                        <dialog-name>ky58settings</dialog-name>
+                      </binding>
+                    </item>
 
 
           <!--          <item>
@@ -124,7 +152,7 @@
                         </binding>
                     </item>-->
 <item>
-        <label>KY-58 Secure MP-Chat (To chat with WSO too)</label>
+        <label>KY-58 Secure MP-Chat</label>
         <binding>
             <command>dialog-show</command>
             <dialog-name>secure</dialog-name>
@@ -578,6 +606,18 @@
 			<drone>
 			<file>Aircraft/SR71/Nasal/drone.nas</file>
 		</drone>
+
+
+ <reversethrust>
+		<file>Aircraft/SR71/Nasal/reverse-thrust.nas</file>
+		</reversethrust>
+		 <misc>
+		<file>Aircraft/SR71/Nasal/misc.nas</file>
+		</misc>
+		 <screen>
+		<file>Aircraft/SR71/Nasal/screen.nas</file>
+		</screen>
+
     </nasal>
 	
 	<!-- setting up properties for later -->

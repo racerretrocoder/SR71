@@ -48,6 +48,17 @@
                         <value>1</value>
                 </binding>
         </key>
+
+  <key n="127">
+		<name>Delete</name>
+		<desc>Toggle Reversers</desc>
+		<binding>
+			<command>nasal</command>
+			<script>reversethrust.togglereverser();screen.log.write("Toggling reverse thrust");</script>
+		</binding>
+		</key>	
+  
+
         <key n="106">
                 <name>j</name>
                 <desc>Braking Chute Reload</desc>

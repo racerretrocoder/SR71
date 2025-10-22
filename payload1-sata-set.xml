@@ -4,14 +4,14 @@
 
   <sim>
 
-    <description>XSR-71A Test payload to orbit!</description>
+    <description>XSR-71A Test payload to orbit! (with orbit simulation) | payload.nas</description>
     <author>Phoenix</author>
     <aircraft-version>0.3.0</aircraft-version>
     <status>Alpha</status>
 
     
-    <flight-model>ufo</flight-model>
-    <aero>sr71-jsbsim</aero>
+    <flight-model>jsb</flight-model>
+    <aero>sat</aero>
 
     <startup>
 
@@ -146,6 +146,9 @@
 		<KY58>
 			<file>Aircraft/SR71/Nasal/secure.nas</file>
 		</KY58>
+    <sat>
+    			<file>Aircraft/SR71/Nasal/payload.nas</file>
+    </sat>
   </nasal>
 
 </PropertyList>

@@ -20,6 +20,119 @@
     </model>
 
 
+ <animation>
+  <type>pick</type>
+   <object-name>ap</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+  <command>nasal</command>
+  <script>screen.ap();</script>
+    </binding>
+   </action>
+ </animation>
+
+
+ <animation>
+  <type>pick</type>
+   <object-name>autoorbit</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+  <command>nasal</command>
+  <script>screen.orbitauto();</script>
+    </binding>
+   </action>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+   <object-name>prograde</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+  <command>nasal</command>
+  <script>screen.prograde();</script>
+    </binding>
+   </action>
+ </animation>
+
+
+  <animation>
+  <type>pick</type>
+   <object-name>retrograde</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+  <command>nasal</command>
+  <script>screen.retrograde();</script>
+    </binding>
+   </action>
+ </animation>
+
+  <animation>
+  <type>pick</type>
+   <object-name>left</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+  <command>nasal</command>
+  <script>screen.left();</script>
+    </binding>
+   </action>
+ </animation>
+  <animation>
+  <type>pick</type>
+   <object-name>right</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+  <command>nasal</command>
+  <script>screen.right();</script>
+    </binding>
+   </action>
+ </animation>
+
+  <animation>
+  <type>pick</type>
+   <object-name>down</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+  <command>nasal</command>
+  <script>screen.dn();</script>
+    </binding>
+   </action>
+ </animation>
+
+
+  <animation>
+  <type>pick</type>
+   <object-name>up</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+  <command>nasal</command>
+  <script>screen.up();</script>
+    </binding>
+   </action>
+ </animation>
 
 
  <animation>
@@ -362,4 +475,8 @@
        <property>controls/isspace</property>
         </condition>
     </animation>
+
+
+
+
 </PropertyList>

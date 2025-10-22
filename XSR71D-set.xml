@@ -6,8 +6,8 @@
 
 
     <sim include="Help/BlackBird-help.xml" >
-        <description>XSR-71A Experimental Weapons Testbed</description>
-        <author>was Gerard ROBIN, updated by grtux hangar team https://sites.google.com/site/grtuxhangar/</author>
+        <description>XSR-71D Strato/Space Fighter</description>
+        <author>was Gerard ROBIN, updated by grtux hangar team https://sites.google.com/site/grtuxhangar/, Converted by Phoenix</author>
         <status>alpha, "GPL Copyright"</status>
         <version>0.5  2011-06-013</version>
         <flight-model>jsb</flight-model>
@@ -15,10 +15,10 @@
                 <splash-texture>Aircraft/SR71/splash-BB-A-BT.png</splash-texture>
         </startup>
         <flight-model>jsb</flight-model>
-        <aero>sr71-jsbsim</aero>
+        <aero>sr71d-jsbsim</aero>
         <model>
-            <path>Aircraft/SR71/Models/XSR71.xml</path>
-            <fallback-model-index>571</fallback-model-index>
+            <path>Aircraft/SR71/Models/XSR-71D.xml</path>
+
             <controls>
                 <chute>0</chute>
             </controls>

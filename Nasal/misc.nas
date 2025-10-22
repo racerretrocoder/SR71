@@ -1,4 +1,4 @@
-# Ai "Searcher"
+# Ai "Searcher", and other random stuff!
 # Created by Phoenix, Skid, and Uapilot
 #
 # This script is used to search for another pilots properties (Mainly the rotor prop)
@@ -12,28 +12,6 @@
 # If it finds what we want. That will check out successfully, then itll read from the ID of our MP target and see if our target is flaring or not. via the rotors prop 
 # Its kinda like Phoenix's Lockhelper.nas But expanded apon
 
-# This file version is: 4.8
-
-
-
-var phnyawacscompatible = 1;
-setprop("controls/awacs/callsig/callsign[0]", "1NONE2");
-setprop("controls/awacs/callsig/callsign[1]", "1NONE2");
-setprop("controls/awacs/callsig/callsign[2]", "1NONE2");
-setprop("controls/awacs/callsig/callsign[3]", "1NONE2");
-setprop("controls/awacs/callsig/callsign[4]", "1NONE2");
-setprop("controls/awacs/callsig/callsign[5]", "1NONE2"); # u
-setprop("controls/awacs/callsig/callsign[6]", "1NONE2");
-setprop("controls/awacs/callsig/callsign[7]", "1NONE2");
-setprop("controls/awacs/callsig/callsign[8]", "1NONE2");
-setprop("controls/awacs/callsig/callsign[9]", "1NONE2");
-setprop("controls/awacs/callsig/callsign[10]", "1NONE2");
-setprop("controls/awacs/callsig/callsign[11]", "1NONE2");
-setprop("controls/awacs/callsig/callsign[12]", "1NONE2");
-setprop("controls/awacs/callsig/callsign[13]", "1NONE2"); # u
-setprop("controls/awacs/callsig/callsign[14]", "1NONE2");
-setprop("controls/awacs/callsig/callsign[15]", "1NONE2");
-setprop("controls/awacs/callsig/callsign[16]", "1NONE2");
 
 var search = func(cs,isuav = 0){
 # i made = 0 in there so i dont have to include both parameters when calling the function. 
@@ -322,41 +300,36 @@ var smallsearch = func(cs=nil) {
       # were searching for someone...
       if (getprop("ai/models/multiplayer[" ~ i ~ "]/callsign") == cs) {
           # we have our number
-          print(mpid);
+          #print(mpid);
           mpid = i;
           #track(mpid,0); # run the flare detection/RND on this Multiplayer property
-          return mpid; # Bam!    
-                            }
+          return mpid; # Bam!
+          
+     }
+      var callsign = list[i].getNode("callsign").getValue();
+     }
+   }
+}
 
-        } else {
-            # cs is not given
-        mpid = i;
-        if (phnyawacscompatible == 1) {
-        # compute it
-        var tgtcallsig = getprop("ai/models/multiplayer[" ~ mpid ~ "]/callsign");
-        setprop("/controls/awacs/callsig/callsign[" ~ mpid ~ "]", tgtcallsig);
-        var sig1 = getprop("controls/awacs/callsig/callsign[0]");
-        var sig2 = getprop("controls/awacs/callsig/callsign[1]");
-        var sig3 = getprop("controls/awacs/callsig/callsign[2]");
-        var sig4 = getprop("controls/awacs/callsig/callsign[3]");
-        var sig5 = getprop("controls/awacs/callsig/callsign[4]"); # up to 8
-        var sig6 = getprop("controls/awacs/callsig/callsign[5]");
-        var sig7 = getprop("controls/awacs/callsig/callsign[6]");
-        var sig8 = getprop("controls/awacs/callsig/callsign[7]");
-        var sig9 =  getprop("controls/awacs/callsig/callsign[8]");
-        var sig10 = getprop("controls/awacs/callsig/callsign[9]");
-        var sig11 = getprop("controls/awacs/callsig/callsign[10]");
-        var sig12 = getprop("controls/awacs/callsig/callsign[11]");
-        var sig13 = getprop("controls/awacs/callsig/callsign[12]");
-        var sig14 = getprop("controls/awacs/callsig/callsign[13]");
-        var sig15 = getprop("controls/awacs/callsig/callsign[14]");
-        var sig16 = getprop("controls/awacs/callsig/callsign[15]");
-        datalink.send_data({"contacts":[{"callsign": sig1,"iff":0},{"callsign": sig2, "iff":0},{"callsign": sig3, "iff":0},{"callsign": sig4, "iff":0},{"callsign": sig5, "iff":0},{"callsign": sig6, "iff":0},{"callsign": sig7, "iff":0},{"callsign": sig8, "iff":0},{"callsign": sig9,"iff":0},{"callsign": sig10, "iff":0},{"callsign": sig11, "iff":0},{"callsign": sig12, "iff":0},{"callsign": sig13, "iff":0},{"callsign": sig14, "iff":0},{"callsign": sig15, "iff":0},{"callsign": sig16, "iff":0}]});
-        awacs.update(mpid,tgtcallsig);
-        setprop("sim/multiplay/visibility-range-nm",1000);
-          }
-       }
-    }
+
+
+var getbearingto = func(cs=nil) {
+  # only works if in radar range. Dosent have to be in radar view
+  var list = props.globals.getNode("/ai/models").getChildren("multiplayer");
+  var total = size(list);
+  var mpid = 0;
+  for(var i = 0; i < total; i += 1) {
+      if (cs != nil) {
+      # were searching for someone...
+      if (getprop("ai/models/multiplayer[" ~ i ~ "]/callsign") == cs) {
+          # we have our number
+          print(mpid);
+          mpid = i;
+          return getprop("ai/models/multiplayer[" ~ mpid ~ "]/radar/bearing-deg");    
+        }
+      var callsign = list[i].getNode("callsign").getValue();
+     }
+   }
 }
 
 var searchsize = func() {
@@ -366,11 +339,41 @@ var searchsize = func() {
 }
 
 
-awacstimer = maketimer(0.1,smallsearch);
-var awacsstart = func {
-    awacstimer.start();
+var calcdamage = func(lat,lon,mslname="none"){
+       # screen.log.write("testing distance");
+        print("Calcing");
+        var aimplist = searchsize();
+        var impactbomb = geo.Coord.new();
+        impactbomb.set_latlon(lat,lon,0);
+        var lat2 = 0;
+        var lon2 = 0;
+        var playercoord = geo.Coord.new();
+        for(var i = 0; i < aimplist; i += 1) {
+                print(i);
+                lat2 = getprop("ai/models/multiplayer[" ~ i ~ "]/position/latitude-deg");
+                lon2 = getprop("ai/models/multiplayer[" ~ i ~ "]/position/longitude-deg");
+                if (lat2 == nil) {
+                    #screen.log.write("nil");
+                    return;
+                }
+                playercoord.set_latlon(lat2,lon2,0);
+               # screen.log.write(printf("%i",  impactbomb.distance_to(playercoord)));
+                if (impactbomb.distance_to(playercoord) < 51) {
+                    var callsign = getprop("ai/models/multiplayer[" ~ i ~ "]/callsign");
+                    var distance = impactbomb.distance_to(playercoord);
+                    missile.MISSILE.broddamage(callsign,distance,mslname);
+                }
+        }
 }
 
-var awacsstop = func {
-    awacstimer.stop();
+# Uapilot finddel() string stuff
+var finddel = func(thestring, sub) {
+	if (substr(thestring, -size(sub)) == sub) { # Negation of the size() output. That seems to be the fastest way. And it works constantly!
+        var answer = substr(thestring, 0, size(thestring) - size(sub));
+		#print(answer);
+        return answer; # Deleted the sub!
+    } else {
+        #print("didnt work :( "~sub~"");
+	    return thestring; # what can it be
+    }
 }

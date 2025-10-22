@@ -8,7 +8,7 @@ var cit_max = 427;
 var ab_state = {};
 ab_state[0] = 0;
 ab_state[1] = 0;
-
+setprop("orientation/beta-deg-added",0.1);
 #path locations
 var engine_damage = ["/engines/engine[0]/eng-damage","/engines/engine[1]/eng-damage"];
 var cit_path = "/fdm/jsbsim/propulsion/cit";
@@ -18,6 +18,20 @@ var cit_left_alt_offset = "/engines/engine[0]/cit-alt-offset";
 var cit_right = "/engines/engine[1]/cit";
 var cit_right_rand_offset = "/engines/engine[1]/cit-rand-offset";
 var cit_right_alt_offset = "/engines/engine[1]/cit-alt-offset";
+
+
+var spacebetaupdate = func(){
+	var addedbeta = getprop("fdm/jsbsim/fcs/beta-deg-added");
+	var ourhdg = getprop("orientation/true-heading-deg");
+	if (addedbeta > 90) {
+		# we passwed 360
+		print("Adjusted heading");
+		var newdeg = addedbeta - 360;
+		setprop("orientation/beta-deg-added",newdeg);
+	} else {
+		setprop("orientation/beta-deg-added",addedbeta);
+	}
+}
 
 #initial sets
 setprop(engine_damage[0],0);
@@ -47,6 +61,9 @@ var main = func () {
 	settimer(func { main(); }, MAIN_UPDATE_TIMER);
 	
 }
+
+
+
 
 
 	# startup procedures
@@ -92,6 +109,8 @@ var trigger = func() {
 }
 trigtimer = maketimer(0.1,trigger);
 trigtimer.start();
+betatimer = maketimer(0,spacebetaupdate);
+betatimer.start();
 
  
 var updatehdg = func() {

@@ -1,0 +1,305 @@
+<?xml version="1.0"?>
+<PropertyList>
+  <name>ky58settings</name>
+  <layout>vbox</layout>
+
+  <text>
+    <label>KY-58 Secure MPChat Controls</label>
+  </text>
+
+  <hrule/>
+
+  <group>
+    <layout>vbox</layout>
+    <halign>center</halign>
+
+    <text>
+      <label>Knobs</label>
+    </text>
+
+    <checkbox>
+      <halign>left</halign>
+      <label>MASTER ARM</label>
+      <property>controls/ky58/diagmst</property>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/ky58/diagmst</property>
+      </binding>
+    </checkbox>
+
+
+    <button>
+      <pref-width>86</pref-width>
+      <pref-height>25</pref-height>
+      <legend>ON</legend>
+	  	<halign>left</halign>
+      <border>2</border>
+      <binding>
+<command>nasal</command>
+            <script>
+			  			   setprop("controls/ky58/main",1);
+			</script>
+      </binding>
+            	<enable>
+                <property>controls/ky58/diagmst</property>
+        </enable>
+    </button>
+    <button>
+      <pref-width>86</pref-width>
+      <pref-height>25</pref-height>
+      <legend>OFF</legend>
+	  	<halign>left</halign>
+      <border>2</border>
+      <binding>
+<command>nasal</command>
+            <script>
+			  			   setprop("controls/ky58/main",0);
+			</script>
+      </binding>
+            	<enable>
+                <property>controls/ky58/diagmst</property>
+        </enable>
+    </button>
+    <button>
+      <pref-width>86</pref-width>
+      <pref-height>25</pref-height>
+      <legend>TD</legend>
+	  	<halign>left</halign>
+      <border>2</border>
+      <binding>
+<command>nasal</command>
+            <script>
+			   setprop("controls/ky58/main",2);
+			</script>
+      </binding>
+            	<enable>
+                <property>controls/ky58/diagmst</property>
+        </enable>
+    </button>
+   
+    <button>
+      <pref-width>86</pref-width>
+      <pref-height>25</pref-height>
+      <legend>1</legend>
+	  	<halign>left</halign>
+      <border>2</border>
+      <binding>
+<command>nasal</command>
+            <script>
+			  setprop("controls/ky58/type",0);
+			</script>
+      </binding>
+            	<enable>
+                <property>controls/ky58/diagmst</property>
+        </enable>
+    </button>
+
+    <button>
+      <pref-width>86</pref-width>
+      <pref-height>25</pref-height>
+      <legend>2</legend>
+	  	<halign>left</halign>
+      <border>2</border>
+      <binding>
+<command>nasal</command>
+            <script>
+			  setprop("controls/ky58/type",1);
+			</script>
+      </binding>
+            	<enable>
+                <property>controls/ky58/diagmst</property>
+        </enable>
+    </button>
+    <button>
+      <pref-width>86</pref-width>
+      <pref-height>25</pref-height>
+      <legend>3</legend>
+	  	<halign>left</halign>
+      <border>2</border>
+      <binding>
+<command>nasal</command>
+            <script>
+			  setprop("controls/ky58/type",2);
+			</script>
+      </binding>
+            	<enable>
+                <property>controls/ky58/diagmst</property>
+        </enable>
+    </button>
+
+    <button>
+      <pref-width>86</pref-width>
+      <pref-height>25</pref-height>
+      <legend>4</legend>
+	  	<halign>left</halign>
+      <border>2</border>
+      <binding>
+<command>nasal</command>
+            <script>
+			  setprop("controls/ky58/type",3);
+			</script>
+      </binding>
+            	<enable>
+                <property>controls/ky58/diagmst</property>
+        </enable>
+    </button>
+
+    <button>
+      <pref-width>86</pref-width>
+      <pref-height>25</pref-height>
+      <legend>5</legend>
+	  	<halign>left</halign>
+      <border>2</border>
+      <binding>
+<command>nasal</command>
+            <script>
+			  setprop("controls/ky58/type",4);
+			</script>
+      </binding>
+            	<enable>
+                <property>controls/ky58/diagmst</property>
+        </enable>
+    </button>
+
+    <button>
+      <pref-width>86</pref-width>
+      <pref-height>25</pref-height>
+      <legend>6</legend>
+	  	<halign>left</halign>
+      <border>2</border>
+      <binding>
+<command>nasal</command>
+            <script>
+			  setprop("controls/ky58/type",5);
+			</script>
+      </binding>
+            	<enable>
+                <property>controls/ky58/diagmst</property>
+        </enable>
+    </button>
+
+ <button>
+      <pref-width>86</pref-width>
+      <pref-height>25</pref-height>
+      <legend>Z</legend>
+	  	<halign>left</halign>
+      <border>2</border>
+      <binding>
+<command>nasal</command>
+            <script>
+			  setprop("controls/ky58/type",6);
+			</script>
+      </binding>
+            	<enable>
+                <property>controls/ky58/diagmst</property>
+        </enable>
+    </button>
+
+     <button>
+      <pref-width>86</pref-width>
+      <pref-height>25</pref-height>
+      <legend>ALL</legend>
+	  	<halign>left</halign>
+      <border>2</border>
+      <binding>
+<command>nasal</command>
+            <script>
+			  setprop("controls/ky58/type",7);
+			</script>
+      </binding>
+            	<enable>
+                <property>controls/ky58/diagmst</property>
+        </enable>
+    </button>
+
+
+ <button>
+      <pref-width>86</pref-width>
+      <pref-height>25</pref-height>
+      <legend>P</legend>
+	  	<halign>left</halign>
+      <border>2</border>
+      <binding>
+<command>nasal</command>
+            <script>
+			  setprop("controls/ky58/mode",0);
+			</script>
+      </binding>
+            	<enable>
+                <property>controls/ky58/diagmst</property>
+        </enable>
+    </button>
+ <button>
+      <pref-width>86</pref-width>
+      <pref-height>25</pref-height>
+      <legend>C</legend>
+	  	<halign>left</halign>
+      <border>2</border>
+      <binding>
+<command>nasal</command>
+            <script>
+			   setprop("controls/ky58/mode",1);
+			</script>
+      </binding>
+            	<enable>
+                <property>controls/ky58/diagmst</property>
+        </enable>
+    </button>
+
+ <button>
+      <pref-width>86</pref-width>
+      <pref-height>25</pref-height>
+      <legend>LD</legend>
+	  	<halign>left</halign>
+      <border>2</border>
+      <binding>
+<command>nasal</command>
+            <script>
+			  setprop("controls/ky58/mode",2);
+			</script>
+      </binding>
+            	<enable>
+                <property>controls/ky58/diagmst</property>
+        </enable>
+    </button>
+
+ <button>
+      <pref-width>86</pref-width>
+      <pref-height>25</pref-height>
+      <legend>RV</legend>
+	  	<halign>left</halign>
+      <border>2</border>
+      <binding>
+<command>nasal</command>
+            <script>
+			  setprop("controls/ky58/mode",3);
+			</script>
+      </binding>
+            	<enable>
+                <property>controls/ky58/diagmst</property>
+        </enable>
+    </button>
+
+
+  </group>
+
+  <hrule/>
+
+  <group>
+    <layout>hbox</layout>
+    <empty><stretch>true</stretch></empty>
+
+    <button>
+      <legend>Close</legend>
+      <default>true</default>
+      <key>Esc</key>
+      <binding>
+        <command>dialog-close</command>
+      </binding>
+
+    </button>
+
+    <empty><stretch>true</stretch></empty>
+  </group>
+
+</PropertyList>
