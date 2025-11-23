@@ -5,16 +5,7 @@
     Copyright License:  GPL
 -->
 <PropertyList>
-     <model>
-        <name>rentry</name>
-        <path>Aircraft/SR71/Models/Effects/rentry.xml</path>
-        <offsets>
-                <x-m>0</x-m>
-                <y-m>0</y-m>
-                <z-m>0</z-m>
-                <pitch-deg>0</pitch-deg>
-        </offsets>
-    </model>
+
  <path>SR-71A-Blackbird.ac</path>
  <texture-path>Texture-USAF/</texture-path>
 
@@ -195,11 +186,20 @@
 
 </animation> 
 
-
+     <model>
+        <name>rentry</name>
+        <path>Aircraft/SR71/Models/Effects/rentry.xml</path>
+        <offsets>
+                <x-m>0</x-m>
+                <y-m>0</y-m>
+                <z-m>0</z-m>
+                <pitch-deg>0</pitch-deg>
+        </offsets>
+    </model>
 
      <model>
         <name>model-base</name>
-        <path>Aircraft/SR71/Models/DBlackBird-BigTail-Base.xml</path>
+        <path>Aircraft/SR71/Models/BlackBird-BigTail-Base.xml</path>
         <offsets>
                 <x-m>0</x-m>
                 <y-m>0</y-m>

@@ -858,6 +858,29 @@
             <min unit="DEG">-7</min>
             <max unit="DEG">15</max>
         </alphalimits>
+  <function name="aero/rentry/plasma-coeff">
+      <description>rentry graph A</description>
+      <table>
+      <!-- any speed above 14.6 must be 50KM+ or death-->
+        <independentVar lookup="row">/velocities/mach</independentVar>
+        <independentVar lookup="column">/position/altitude-ft</independentVar>
+        <tableData>
+        <!--    0             10KM           20KM        30KM         40KM        50KM        60KM        70KM        80KM        N\A         -->
+				0	          32808.4        65616.8	 98425.2      131234      164042      196850      229659      262467      275000    
+		2.9	    1             1              0           0            0           0           0           0           0           0
+		5.8	   0.5           0.6            0.1          0            0           0           0           0           0           0
+		8.8	   0.5           0.6            0.5         0.5           0           0           0           0           0           0
+		11.7   0.8           0.6            0.5         0.6          0.5         0.3         0.3         0.2         0.1          0
+		14.6    1            0.7            0.5         0.7          0.9         0.9         0.5         0.5         0.4          0
+		17.6    2	         0.9            0.5         0.8           1           2          0.9         0.9         0.5          0
+ 		20.5    5             1             0.5         0.9           3           3          1.5         1.2         0.05         0
+		23.6    7            6.8            6.5          5            5           5           2           1          0.1          0
+        </tableData>
+      </table>
+    </function>
+
+
+
         <function name="aero/function/kCDge">
             <description>Change_in_drag_due_to_ground_effect</description>
             <product>
@@ -985,7 +1008,13 @@
                     <value>0.042</value>
                 </product>
             </function>
-
+           <function name="aero/coefficient/rentry">
+                <description>Drag_rentry</description>
+                <product>
+                    <property>aero/rentry/plasma-coeff</property>
+                    <value>1020000</value>
+                </product>
+            </function>
             <function name="aero/coefficient/JAL">
                 <description>Drag_due_to_jet_assisted_Landing</description>
                 <product>

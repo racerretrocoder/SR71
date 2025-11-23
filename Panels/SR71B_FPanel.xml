@@ -236,13 +236,13 @@
 
 -->
 
-
+<!--Back screen-->
     <model>
             <path>Aircraft/SR71/Instruments/screen.xml</path>
             <offsets>
-                    <x-m>0.00951505</x-m>
-                    <y-m>-0.150865</y-m>
-                    <z-m>-0.0481001</z-m>
+                    <x-m>1.72951505</x-m>
+                    <y-m>0.200865</y-m>
+                    <z-m>-0.0701001</z-m>
                     <pitch-deg>0</pitch-deg>
         </offsets>
     </model>

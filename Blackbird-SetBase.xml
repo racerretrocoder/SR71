@@ -59,7 +59,7 @@
                 </redout>
         </rendering>
         <multiplay>
-		            <visibility-range-nm type="int">1000</visibility-range-nm>
+		            <visibility-range-nm type="int">2000</visibility-range-nm>
             <generic>
                     <float n="0" alias="/surface-positions/gear-pos-norm"/>
                     <float n="1" alias="/surface-positions/chute-pos-norm"/>
@@ -80,7 +80,7 @@
 					<float n="16" alias="/velocities/uBody-fps"/>
 					<float n="17" alias="/velocities/vBody-fps"/>
 					<float n="18" alias="/velocities/wBody-fps"/>
-
+					<float n="19" alias="/fdm/jsbsim/aero/rentry/plasma-coeff"/>
 					<!-- Payload bay  
 					
 					

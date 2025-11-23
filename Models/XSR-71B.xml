@@ -5,6 +5,59 @@
     Copyright License:  GPL
 -->
 <PropertyList>
+
+ <path>SR-71B-Blackbird.ac</path>
+ <texture-path>Texture-USAF/</texture-path>
+
+
+    <offsets>
+        <z-m>0.10</z-m>
+        <pitch-deg>0</pitch-deg>
+    </offsets>
+
+     <model>
+        <name>model-base</name>
+        <path>Aircraft/SR71/Models/BlackBird-Base.xml</path>
+        <offsets>
+                <x-m>0</x-m>
+                <y-m>0</y-m>
+                <z-m>0</z-m>
+                <pitch-deg>0</pitch-deg>
+        </offsets>
+    </model>
+
+    <model>
+        <name>Cockpit-PiloteStud</name>
+        <path>Aircraft/SR71/Models/SR71-Cockpit-avant.xml</path>
+        <offsets>
+                <x-m>0</x-m>
+                <y-m>0</y-m>
+                <z-m>0</z-m>
+                <pitch-deg>0</pitch-deg>
+        </offsets>
+    </model>
+
+    <animation>
+            <type>noshadow</type>
+            <object-name>Cockpit-PiloteStud</object-name>
+    </animation>
+
+    <model>
+        <name>Cockpit-Pilote-Controles</name>
+        <path>Aircraft/SR71/Models/SR71-Cockpit-controles.xml</path>
+        <offsets>
+                <x-m>-11.8579</x-m>
+                <y-m>0</y-m>
+                <z-m>0.87</z-m>
+                <pitch-deg>0</pitch-deg>
+        </offsets>
+    </model>
+
+    <animation>
+            <type>noshadow</type>
+            <object-name>Cockpit-Pilote-Controles</object-name>
+    </animation>
+
      <model>
         <name>rentry</name>
         <path>Aircraft/SR71/Models/Effects/rentry.xml</path>
@@ -15,296 +68,26 @@
                 <pitch-deg>0</pitch-deg>
         </offsets>
     </model>
- <path>SR-71A-Blackbird.ac</path>
- <texture-path>Texture-USAF/</texture-path>
-
-
-    <offsets>
-        <z-m>0.10</z-m>
-        <pitch-deg>0</pitch-deg>
-    </offsets>
-
-
-
-<animation>
-        <type>knob</type>
-    <object-name>ky58mode</object-name>
-        <value>0.0</value> <!-- or property as usual for rotate animation -->
-
-        <axis>
-   <object-name>airsource-axis</object-name>
-        </axis>
-        
-        <action>
-            <binding>
-                <command>property-cycle</command>
-                <property>/controls/ky58/mode</property>
-                <value>0</value>
-                <value>1</value>
-                <value>2</value> 
-                <value>3</value>           
-                <wrap>false</wrap>
-            </binding>
-        </action>
-        <hovered>
-            <binding>
-                <command>set-tooltip</command>
-                <tooltip-id>ky58mode</tooltip-id>
-                <label>KY-58 Mode</label>
-            </binding>
-        </hovered>
-  <increase>
-      <binding>
-        <command>property-toggle</command>
-        <property>sim/model/click</property>
-      </binding>
-        </increase>
-        <decrease>
-      <binding>
-        <command>property-toggle</command>
-        <property>sim/model/click</property>
-      </binding>
-        </decrease> 
-    </animation>
-
-
-<animation>
-	<type>rotate</type>
-	<object-name>ky58mode</object-name>
-	<property>controls/ky58/mode</property>
-	<factor>40</factor>
-	<axis>
-	<object-name>ky58mode-axis</object-name>
-	</axis>
-
-</animation> 
-
-
-
-
-<animation>
-        <type>knob</type>
-    <object-name>ky58type</object-name>
-        <value>0.0</value> <!-- or property as usual for rotate animation -->
-
-        <axis>
-   <object-name>airsource-axis</object-name>
-        </axis>
-        
-        <action>
-            <binding>
-                <command>property-cycle</command>
-                <property>/controls/ky58/type</property>
-                <value>0</value>
-                <value>1</value>
-                <value>2</value> 
-                <value>3</value>           
-                <value>4</value>
-                <value>5</value>
-                <value>6</value> 
-                <value>7</value>    
-                <wrap>false</wrap>
-            </binding>
-        </action>
-        <hovered>
-            <binding>
-                <command>set-tooltip</command>
-                <tooltip-id>ky58type</tooltip-id>
-                <label>KY-58 Type</label>
-            </binding>
-        </hovered>
-  <increase>
-      <binding>
-        <command>property-toggle</command>
-        <property>sim/model/click</property>
-      </binding>
-        </increase>
-        <decrease>
-      <binding>
-        <command>property-toggle</command>
-        <property>sim/model/click</property>
-      </binding>
-        </decrease> 
-    </animation>
-
-
-<animation>
-	<type>rotate</type>
-	<object-name>ky58type</object-name>
-	<property>controls/ky58/type</property>
-	<factor>38</factor>
-	<axis>
-	<object-name>ky58type-axis</object-name>
-	</axis>
-
-</animation> 
-
-
-
-
-
-<animation>
-        <type>knob</type>
-    <object-name>ky58main</object-name>
-        <value>0.0</value> <!-- or property as usual for rotate animation -->
-
-        <axis>
-   <object-name>airsource-axis</object-name>
-        </axis>
-        
-        <action>
-            <binding>
-                <command>property-cycle</command>
-                <property>/controls/ky58/main</property>
-                <value>0</value>
-                <value>1</value>
-                <value>2</value> 
-                <wrap>false</wrap>
-            </binding>
-        </action>
-        <hovered>
-            <binding>
-                <command>set-tooltip</command>
-                <tooltip-id>ky58main</tooltip-id>
-                <label>KY-58 Main (Power)</label>
-            </binding>
-        </hovered>
-  <increase>
-      <binding>
-        <command>property-toggle</command>
-        <property>sim/model/click</property>
-      </binding>
-        </increase>
-        <decrease>
-      <binding>
-        <command>property-toggle</command>
-        <property>sim/model/click</property>
-      </binding>
-        </decrease> 
-    </animation>
-
-
-<animation>
-	<type>rotate</type>
-	<object-name>ky58main</object-name>
-	<property>controls/ky58/main</property>
-	<factor>38</factor>
-	<axis>
-	<object-name>ky58main-axis</object-name>
-	</axis>
-
-</animation> 
-
-
-
-     <model>
-        <name>model-base</name>
-        <path>Aircraft/SR71/Models/DBlackBird-BigTail-Base.xml</path>
-        <offsets>
-                <x-m>0</x-m>
-                <y-m>0</y-m>
-                <z-m>0</z-m>
-                <pitch-deg>0</pitch-deg>
-        </offsets>
-    </model>
 
     <model>
-        <name>Cockpit-Pilote</name>
-        <path>Aircraft/SR71/Models/SR71-Cockpit-avant.xml</path>
+        <name>PanelV-InstrPilote</name>
+        <path>Aircraft/SR71/Panels/SR71B_FPanel.xml</path>
         <offsets>
-                <x-m>0</x-m>
+                <x-m>-12.388</x-m>
                 <y-m>0</y-m>
-                <z-m>0</z-m>
-                <pitch-deg>0</pitch-deg>
-        </offsets>
-    </model>
-
-
-    <animation>
-            <type>noshadow</type>
-            <object-name>Cockpit-Pilote</object-name>
-    </animation>
-
-    <model>
-        <name>Panel-RSO</name>
-        <path>Aircraft/SR71/Panels/SR71_RSOPanel.xml</path>
-        <offsets>
-            <pitch-deg>-11</pitch-deg>
-            <x-m>-12.4776</x-m>
-            <y-m>0</y-m>
-            <z-m>1.17005</z-m>
+                <z-m>1.29024</z-m>
+                <pitch-deg>-15</pitch-deg>
         </offsets>
     </model>
 
     <animation>
             <type>noshadow</type>
-            <object-name>Panel-RSO</object-name>
-    </animation>
-
-    <model>
-        <name>Pilote</name>
-        <path>Aircraft/SR71/Models/Pilote.xml</path>
-        <offsets>
-                <x-m>-13.9343</x-m>
-                <y-m>0</y-m>
-                <z-m>1.05049</z-m>
-                <pitch-deg>10</pitch-deg>
-        </offsets>
-    </model>
-
-    <animation>
-            <type>noshadow</type>
-            <object-name>Pilote</object-name>
-    </animation>
-
-    <model>
-    <name>RSO</name>
-        <path>Aircraft/SR71/Models/Pilote.xml</path>
-        <offsets>
-                <x-m>-12.2944</x-m>
-                <y-m>0</y-m>
-                <z-m>1.034</z-m>
-                <pitch-deg>10</pitch-deg>
-        </offsets>
-    </model>
-
-    <animation>
-            <type>noshadow</type>
-            <object-name>RSO</object-name>
-    </animation>
-
-
-
-<animation>
-    <type>select</type>
-    <object-name>Pilote</object-name>
-    <condition>
-        <not>
-            <equals>
-                <property>sim/current-view/view-number</property>
-                <value>0</value>
-            </equals>
-        </not>
-    </condition>
- </animation>
-
-
-    <animation>
-        <type>select</type>
-        <object-name>RSO</object-name>
-        <condition>
-            <not>
-                <equals>
-                    <property>sim/current-view/view-number</property>
-                    <value>8</value>
-                </equals>
-            </not>
-        </condition>
+            <object-name>PanelV-InstrPilote</object-name>
     </animation>
 
     <animation>
             <type>rotate</type>
-            <object-name>Canopy</object-name>
+            <object-name>Canopy-PiloteStud</object-name>
            <property>sim/multiplay/generic/float[2]</property>
             <interpolation>
                     <entry>
@@ -341,7 +124,7 @@
                     </entry>
             </interpolation>
             <center>
-                     <x-m>-12.87</x-m>
+                    <x-m>-12.87</x-m>
                     <y-m>0.0</y-m>
                     <z-m>1.55659</z-m>
             </center>
@@ -354,7 +137,7 @@
 
     <animation>
             <type>rotate</type>
-            <object-name>ARCanopy</object-name>
+            <object-name>Canopy-PiloteInstr</object-name>
            <property>sim/multiplay/generic/float[2]</property>
             <interpolation>
                     <entry>
@@ -391,9 +174,9 @@
                     </entry>
             </interpolation>
             <center>
-                    <x-m>-11.04</x-m>
+                    <x-m>-11.0803</x-m>
                     <y-m>0.0</y-m>
-                    <z-m>1.48</z-m>
+                    <z-m>1.84916</z-m>
             </center>
             <axis>
                     <x>0</x>
@@ -403,8 +186,8 @@
     </animation>
 
 <!--    =================================================================-->
-<!--Il n'y a pas de Probe devra etre supprimé dans le model
-This a mistake There is not any probe should  be deleted into the .ac  model-->
+<!--Il n'y a pas de Probe, il devra etre supprimé dans le model
+This a mistake There is not any probe, it should  be deleted into the .ac  model-->
 
     <animation>
             <type>translate</type>
@@ -436,12 +219,13 @@ This a mistake There is not any probe should  be deleted into the .ac  model-->
                             <ind>1</ind>
                             <dep>3.32</dep>
                     </entry>
+
             </interpolation>
             <axis>
                 <x>3.03389</x>
                 <y>0</y>
                 <z>-1.38274</z>
-            </axis>
+        </axis>
             <!--<axis>
                 <x1-m>-9.59622</x1-m>
                 <y1-m>0</y1-m>
@@ -461,7 +245,7 @@ This a mistake There is not any probe should  be deleted into the .ac  model-->
                             <ind>0.0</ind>
                             <dep>-13</dep>
                     </entry>
-                   <!-- <entry>
+                    <!--<entry>
                             <ind>0.3</ind>
                             <dep>-13</dep>
                     </entry>
@@ -483,18 +267,18 @@ This a mistake There is not any probe should  be deleted into the .ac  model-->
                     </entry>
             </interpolation>
             <center>
-                <x-m>-8.63731</x-m>
-                <y-m>0.0</y-m>
-                <z-m>1.44267</z-m>
+                    <x-m>-8.63731</x-m>
+                    <y-m>0.0</y-m>
+                    <z-m>1.44267</z-m>
             </center>
             <axis>
-                <x>0</x>
-                <y>1</y>
-                <z>0</z>
+                    <x>0</x>
+                    <y>1</y>
+                    <z>0</z>
             </axis>
     </animation>
 
-<!--==================================================================-->
+
 
  <animation>
         <type>rotate</type>
@@ -556,8 +340,8 @@ This a mistake There is not any probe should  be deleted into the .ac  model-->
             </interpolation>
             <center>
                 <x-m>0</x-m>
-                <y-m>0.167972</y-m>
-                <z-m>1.48539</z-m>
+                <y-m>0.202344</y-m>
+                <z-m>1.48</z-m>
         </center>
         <axis>
                 <x>-1</x>
