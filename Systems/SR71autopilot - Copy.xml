@@ -16,36 +16,6 @@
 
 <PropertyList>
 	
-
-
- <filter>
-    <name>Sideslip calc</name>
-    <debug>false</debug>
-    <type>gain</type>
-    <enable>
-	<condition>
-	 <equals>
-	  <property>/autopilot/locks/heading</property>
-	  <value>wing-leveler</value>
-	 </equals>
-	</condition>
-    </enable>
-    <input>
-      <property>autopilot/settings/side-slip-angle</property>
-      <offset>
-        <property>orientation/heading-deg</property>
-        <scale>-1.0</scale>
-      </offset>
-    </input>
-    <output>autopilot/internal/side-slip-error-deg</output>
-    <period>
-      <min>-180</min>
-      <max>180</max>
-    </period>
-    <gain>1.0</gain>
-  </filter>
-
-
 	<!-- =============================================================== -->
 	<!-- Roll Axis Modes                                                 -->
 	<!-- =============================================================== -->
@@ -59,7 +29,7 @@
 			<value>wing-leveler</value>
 		</enable>
 		<input>
-			<prop>/autopilot/internal/side-slip-error-deg</prop> <!--Old fdm/jsbsim/fcs/beta-deg-added-->
+			<prop>/orientation/beta-deg-added</prop> <!--Old fdm/jsbsim/fcs/beta-deg-added-->
 		</input>
 		<reference>
 			<value>0.0</value>
@@ -405,7 +375,7 @@
    <gamma>0.0</gamma>  <!-- input value weighing factor for -->
    <Ti>1.1</Ti>       <!-- integrator time  10.0 -->
    <Td>0.00001</Td>    <!-- derivator time -->   
-			<u_min>-1</u_min>     
+			<u_min>-0.5</u_min>     
 			<u_max>0.9</u_max>      
 		</config>
 	</pid-controller>
@@ -429,11 +399,11 @@
 			<prop>/controls/flight/elevator</prop>
 		</output>
 		<config>
-   <Kp>-0.1</Kp>      
+   <Kp>-1</Kp>      
    <beta>1.0</beta>    <!-- input value weighing factor -->
    <alpha>0.1</alpha>  <!-- low pass filter weighing factor -->
    <gamma>0.0</gamma>  <!-- input value weighing factor for -->
-   <Ti>10.1</Ti>       <!-- integrator time  10.0 -->
+   <Ti>1.1</Ti>       <!-- integrator time  10.0 -->
    <Td>0.00001</Td>    <!-- derivator time -->   
 			<u_min>-0.4</u_min>     
 			<u_max>0.4</u_max>      
@@ -544,15 +514,15 @@
    <property>/autopilot/internal/target-pitch-deg</property>
   </output>
    <config>
-     <Kp>0.001</Kp>        <!-- proportional gain -0.01 -->
+     <Kp>0.075</Kp>        <!-- proportional gain -0.01 -->
     <beta>1.0</beta>       <!-- input value weighing factor -->
     <alpha>0.5</alpha>     <!-- low pass filter weighing factor -->
     <gamma>0.0</gamma>     <!-- input value weighing factor for -->
                            <!-- unfiltered derivative error -->
-    <Ti>10.5</Ti>          <!-- integrator time  10.0 -->
+    <Ti>7.5</Ti>          <!-- integrator time  10.0 -->
     <Td>0.0001</Td>       <!-- derivator time -->
-    <u_min>-3.0</u_min>  <!-- minimum output clamp -->
-    <u_max>3.0</u_max>   <!-- maximum output clamp -->
+    <u_min>-12.0</u_min>  <!-- minimum output clamp -->
+    <u_max>12.0</u_max>   <!-- maximum output clamp -->
    </config>
   </pid-controller>
   
@@ -680,15 +650,15 @@
    <property>/autopilot/internal/target-pitch-deg</property>
 		</output>
 		<config>
-     <Kp>0.1</Kp>        <!-- proportional gain -0.01 -->
+     <Kp>5</Kp>        <!-- proportional gain -0.01 -->
     <beta>1.0</beta>       <!-- input value weighing factor -->
-    <alpha>0.1</alpha>     <!-- low pass filter weighing factor -->
+    <alpha>0.5</alpha>     <!-- low pass filter weighing factor -->
     <gamma>0.0</gamma>     <!-- input value weighing factor for -->
                            <!-- unfiltered derivative error -->
-    <Ti>0.5</Ti>          <!-- integrator time  10.0 -->
-    <Td>0.5</Td>       <!-- derivator time -->
-    <u_min>-5.0</u_min>  <!-- minimum output clamp -->
-    <u_max>5.0</u_max>   <!-- maximum output clamp -->    
+    <Ti>0.001</Ti>          <!-- integrator time  10.0 -->
+    <Td>0.0001</Td>       <!-- derivator time -->
+    <u_min>-10.0</u_min>  <!-- minimum output clamp -->
+    <u_max>10.0</u_max>   <!-- maximum output clamp -->    
 		</config>
 	</pid-controller>
         <!-- =============================================================== -->

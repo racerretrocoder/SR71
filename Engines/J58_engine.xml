@@ -55,12 +55,12 @@
   <bypassratio> 0.0 </bypassratio>
   <tsfc> 0.000000000001</tsfc> 
   <atsfc> 0.046 </atsfc> <!--1.900-->
-  <n1spinup>        4.7 </n1spinup>
-  <n2spinup>        4.7 </n2spinup>
-  <n1startrate>     4.0 </n1startrate>
-  <n2startrate>     4.0 </n2startrate>
-  <idlen1> 2.0 </idlen1>
-  <idlen2> 2.0 </idlen2>
+  <n1spinup>        100.7 </n1spinup>
+  <n2spinup>        100.7 </n2spinup>
+  <n1startrate>     100.0 </n1startrate>
+  <n2startrate>     100.0 </n2startrate>
+  <idlen1> 0.0 </idlen1>
+  <idlen2> 0.0 </idlen2>
 
   <maxn1> 102.0 </maxn1>
   <maxn2> 106.0 </maxn2>

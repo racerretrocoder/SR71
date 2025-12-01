@@ -141,7 +141,13 @@ var course = getprop("fdm/jsbsim/velocities/course-deg");
 		setprop("controls/isorbit",0);
 	}
 
+# autopilot controls check
+	var newsetting = course + getprop("autopilot/settings/heading-bug-deg");
+	setprop("autopilot/settings/side-slip-angle",newsetting);
+
 }
+
+
 
 hdgtimer = maketimer(0,updatehdg);
 hdgtimer.start();                            

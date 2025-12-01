@@ -19,6 +19,19 @@
         </offsets>
     </model>
 
+ <animation>
+  <type>pick</type>
+   <object-name>reentry</object-name>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <interval-sec>0.2</interval-sec>
+    <binding>
+  <command>nasal</command>
+  <script>screen.rentry();</script>
+    </binding>
+   </action>
+ </animation>
 
  <animation>
   <type>pick</type>

@@ -51,7 +51,7 @@
 
     <turbine_engine name="J58_Engine">
   <milthrust> 350300 </milthrust>
-  <maxthrust> 600000 </maxthrust>
+  <maxthrust> 1200000 </maxthrust>
   <bypassratio> 0.0 </bypassratio>
   <tsfc> 0.000000000001</tsfc> 
   <atsfc> 0.00000046 </atsfc> <!--1.900-->

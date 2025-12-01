@@ -376,7 +376,7 @@ var cdlg_traj_map = {
 		me.task_group = me.task_group + 1;
 		if (me.task_group == 10) {me.task_group = 0;}
 
-		settimer (func {me.update();}, 0.1);		
+		settimer (func {me.update();}, 0);		
 
 		},
 

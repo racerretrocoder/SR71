@@ -617,6 +617,9 @@
 		 <screen>
 		<file>Aircraft/SR71/Nasal/screen.nas</file>
 		</screen>
+		 <drone>
+		<file>Aircraft/SR71/Nasal/spacedrone.nas</file>
+		</drone>
 
     </nasal>
 	
