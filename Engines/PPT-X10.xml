@@ -1,66 +1,21 @@
 <?xml version="1.0" ?>
 
 
-<!--<documentation>
-    
-    
-    An early goal of this study was to determine the most
-    fuel-efficient climb schedule for the SR-71 aircraft so that test time
-    at the target test condition or the payload drag that could be accommodated
-    to that condition would be maximized. This optimal
-    schedule analysis focused on the transonic and higher speed range
-    because the vehicle would be refueled at Mach 0.75 and an altitude
-    of 25,000 ft (7620 m) soon after takeoff.
-    After refueling, the SR-71 aircraft is normally piloted along a
-    constant Mach 0.9 climb to approximately 33,000 ft (10,058 m),
-    pushed over at a 3000 ft/min (914 m/min) descent to approximately
-    30,000 ft (9144 m), and pulled out in a level acceleration to
-    450    KEAS (Mach 1.25). 
-    This transonic penetration procedure is
-    known as the climb-dive technique. 
-    At 450    KEAS    , the vehicle initiates
-    a constant equivalent airspeed climb to Mach 2.6. At this
-    Mach number, equivalent airspeed is slowly reduced until the vehicle
-    reaches the design cruise condition (3.2 maximum Mach number
-    and 85,000 ft (25,908 m) maximum altitude). The climb-dive
-    technique was discovered by Redin in the early 1970s to use less
-    fuel than level transonic acceleration at 25,000 ft (7620 m) uses.
- 
-    
 
-    
-    
-    
-        The SR-71 aircraft is powered by two 34,000 lbf (151,240 N)
-        thrust-class J58 afterburning turbojet engines (fig. 5). Each engine
-        contains a nine-stage compressor driven by a two-stage turbine.
-        The main burner uses an eight-can combustor. The afterburner is
-        fully modulating. The primary nozzle area is variable. Above
-        Mach 2.2, some of the airflow is bled from the fourth stage of
-        the compressor and dumped into the augmentor inlet through
-        six bleed-bypass tubes, circumventing the core of the engine and
-        transitioning the propulsive cycle from a pure turbojet to a
-        turbo-ramjet. The engine is hydromechanically controlled and
-        burns a special low volatility jet fuel mixture known as JP7.
-        Some known data 
-        24000 34000  1800g/kg/kgp  4.57 kgp/kg  30000 liter/hour => 24000 kg => 52910 lbs/hour
-    
-    
-</documentation>-->
 
 
     <turbine_engine name="J58_Engine">
   <milthrust> 350300 </milthrust>
-  <maxthrust> 1200000 </maxthrust>
+  <maxthrust> 900000 </maxthrust>
   <bypassratio> 0.0 </bypassratio>
-  <tsfc> 0.000000000001</tsfc> 
-  <atsfc> 0.00000046 </atsfc> <!--1.900-->
+  <tsfc> 0.00000001</tsfc> 
+  <atsfc> 0.0046 </atsfc> <!--1.900-->
   <n1spinup>        4.7 </n1spinup>
   <n2spinup>        4.7 </n2spinup>
   <n1startrate>     4.0 </n1startrate>
   <n2startrate>     4.0 </n2startrate>
-  <idlen1> 2.0 </idlen1>
-  <idlen2> 2.0 </idlen2>
+  <idlen1> 0.0 </idlen1>
+  <idlen2> 0.0 </idlen2>
 
   <maxn1> 102.0 </maxn1>
   <maxn2> 106.0 </maxn2>

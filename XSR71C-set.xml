@@ -1,24 +1,25 @@
 <?xml version="1.0"?>
 
 
-<PropertyList include="Blackbird-SetBase.xml" >
+<PropertyList include="Blackbird-SetBaseWeapon.xml" >
 
 
 
     <sim include="Help/BlackBird-help.xml" >
-        <description>SR-71A BlackBird (modified to go to space)</description>
+        <description>XSR-71C SpaceBird Space Fighter</description>
         <author>was Gerard ROBIN, updated by grtux hangar team https://sites.google.com/site/grtuxhangar/</author>
         <status>alpha, "GPL Copyright"</status>
         <version>0.5  2011-06-013</version>
         <flight-model>jsb</flight-model>
         <startup>
-                <splash-texture>Aircraft/SR71/splash-BB-A.png</splash-texture>
+                <splash-texture>Aircraft/SR71/splash-BB-A-BT.png</splash-texture>
         </startup>
         <flight-model>jsb</flight-model>
-        <aero>sr71-jsbsim</aero>
+        <aero>sr71c-jsbsim</aero>
+          <primary-set type="bool">true</primary-set>
         <model>
-            <path archive="y">Aircraft/SR71/Models/Blackbird-SR71A.xml</path>
-            <fallback-model-index type="int">571</fallback-model-index>
+            <path>Aircraft/SR71/Models/XSR-71C.xml</path>
+            <fallback-model-index>571</fallback-model-index>
             <controls>
                 <chute>0</chute>
             </controls>
@@ -36,27 +37,25 @@
             <!--  z position long. val-faible=avance val-forte=recule -->
             <!--  y position haut. val-faible=descent val-forte=monte -->
         <view>
-			<name>Pilot</name>
-			<internal archive="y">true</internal>
-			<config>
-					<!-- x/y/z == right/up/back -->
-					<x-offset-m archive="y">0</x-offset-m>
-					<y-offset-m archive="y">1.44</y-offset-m>
-					<z-offset-m archive="y">-13.6</z-offset-m>
-					<pitch-offset-deg archive="y">-19.5</pitch-offset-deg>
-					<default-field-of-view-deg type="double">74.0</default-field-of-view-deg>
-			</config>
+                    <internal archive="y">true</internal>
+                    <config>
+                            <!-- x/y/z == right/up/back -->
+                            <x-offset-m archive="y">0</x-offset-m>
+                            <y-offset-m archive="y">1.44</y-offset-m>
+                            <z-offset-m archive="y">-13.4</z-offset-m>
+                            <pitch-offset-deg archive="y">-19.5</pitch-offset-deg>
+                            <default-field-of-view-deg type="double">74.0</default-field-of-view-deg>
+                    </config>
         </view>
-		<view n="1">
-			<name>RSO</name>
-			<config>
-				<z-offset-m type="double" archive="y">-40.0</z-offset-m>
-			</config>
+        <view n="1">
+        <config>
+            <z-offset-m type="double" archive="y">-40.0</z-offset-m>
+        </config>
         </view>
 
 
         <view n="100">
-                <name>RSO</name>
+                <name>Cockpit View</name>
                 <type>lookfrom</type>
                 <internal archive="y">true</internal>
                 <config>
@@ -84,7 +83,7 @@
 
 
         <current-view>
-                <field-of-view type="double">80.0</field-of-view>
+                <field-of-view type="double">70.0</field-of-view>
         </current-view>
             <chase-distance-m>-35</chase-distance-m>
     </sim>

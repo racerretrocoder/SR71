@@ -6,7 +6,7 @@
 
 
     <sim include="Help/BlackBird-help.xml" >
-        <description>XSR-71D Strato/Space Fighter</description>
+        <description>XSR-71D High Perfomance Propulsion and UAV Testbed</description>
         <author>was Gerard ROBIN, updated by grtux hangar team https://sites.google.com/site/grtuxhangar/, Converted by Phoenix</author>
         <status>alpha, "GPL Copyright"</status>
         <version>0.5  2011-06-013</version>

@@ -74,8 +74,8 @@
    <gamma>0.0</gamma>  <!-- input value weighing factor for -->
    <Ti>10.1</Ti>       <!-- integrator time  10.0 -->
    <Td>0.00001</Td>    <!-- derivator time -->   
-			<u_min>-0.1</u_min>     
-			<u_max>0.1</u_max>        
+			<u_min>-0.5</u_min>     
+			<u_max>0.5</u_max>        
 		</config>
 	</pid-controller>
         

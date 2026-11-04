@@ -16,7 +16,7 @@
         <flame_color_low_r type="float">0.017</flame_color_low_r>
         <flame_radius_fraction type="float">0.8</flame_radius_fraction>
         <noise_scale type="float">0.9</noise_scale>
-        <noise_strength type="float">0.6</noise_strength>
+        <noise_strength type="float">0.9</noise_strength>
         <thrust_collimation type="float">0.0</thrust_collimation>
         <thrust_density type="float">0.8</thrust_density>
 		<shock_frequency>1.0</shock_frequency>

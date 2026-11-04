@@ -1,0 +1,1394 @@
+<?xml version="1.0"?>
+
+
+<PropertyList>
+
+    <sim>
+			<!-- HUD -->
+		<hud>
+			<path n="1">Aircraft/SR71/HUD.xml</path>
+			<visibility n="1">true</visibility>
+   
+			<palette>
+				<color n="0">
+					<alpha type="float">0.85</alpha>
+					<antialiased type="bool">true</antialiased>
+					<brightness type="float">0.85</brightness>
+					<transparent type="bool">true</transparent>
+					<red type="float">0.38</red>
+					<green type="float">1.0</green>
+					<blue type="float">0.22</blue>
+				</color>
+				<color n="1">
+					<alpha type="float">0.85</alpha>
+					<antialiased type="bool">true</antialiased>
+					<brightness type="float">0.85</brightness>
+					<transparent type="bool">true</transparent>
+					<red type="float">1.0</red>
+					<green type="float">1.0</green>
+					<blue type="float">1.0</blue>
+				</color>
+				<color n="2">
+					<alpha type="float">0.85</alpha>
+					<antialiased type="bool">true</antialiased>
+					<brightness type="float">0.85</brightness>
+					<transparent type="bool">true</transparent>
+					<red type="float">1.0</red>
+					<green type="float">0.2</green>
+					<blue type="float">0.0</blue>
+				</color>
+			</palette>
+   
+		</hud>
+        <systems>
+            <autopilot>
+                <path>Aircraft/SR71/Systems/SR71autopilot.xml</path>
+            </autopilot>
+            <electrical>
+                <path>Aircraft/SR71/Systems/dummy-electrical.xml</path>
+            </electrical>
+            <autoflight>
+                <serviceable type="bool">true</serviceable>
+            </autoflight>
+        </systems>
+        <rendering>
+                <redout>
+                    <red>0</red>
+                    <alpha>0</alpha>
+                    <enabled type="bool">false</enabled>
+                </redout>
+        </rendering>
+        <multiplay>
+		            <visibility-range-nm type="int">2000</visibility-range-nm>
+            <generic>
+                    <float n="0" alias="/surface-positions/gear-pos-norm"/>
+                    <float n="1" alias="/surface-positions/chute-pos-norm"/>
+                    <float n="2" alias="/surface-positions/canopy-pos-norm"/>
+                    <float n="3" alias="/gear/gear[0]/steering-norm"/>
+                    <float n="4" alias="/fdm/jsbsim/fcs/landing-light"/>
+                    <float n="5" alias="/fdm/jsbsim/propulsion/engine[0]/set-thrust"/>
+                    <float n="6" alias="/fdm/jsbsim/propulsion/engine[1]/set-thrust"/>
+                    <float n="7" alias="/engines/engine[0]/nozzle-pos-norm"/>
+                    <float n="8" alias="/engines/engine[1]/nozzle-pos-norm"/>
+                    <float n="9" alias="/velocities/mach"/>
+					<float n="10" alias="/velocities/down-relground-fps"/>
+					<float n="11" alias="/velocities/east-relground-fps"/>
+					<float n="12" alias="/velocities/north-relground-fps"/>
+					<float n="13" alias="/velocities/speed-down-fps"/>
+					<float n="14" alias="/velocities/speed-east-fps"/>
+					<float n="15" alias="/velocities/speed-north-fps"/>
+					<float n="16" alias="/velocities/uBody-fps"/>
+					<float n="17" alias="/velocities/vBody-fps"/>
+					<float n="18" alias="/velocities/wBody-fps"/>
+					<float n="19" alias="/fdm/jsbsim/aero/rentry/plasma-coeff"/>
+					<!-- Payload bay  
+					
+					
+					
+					
+					
+	setprop("velocities/down-relground-fps",getprop("payload/orbiter/down-relground-fps"));
+    setprop("velocities/east-relground-fps",getprop("payload/orbiter/east-relground-fps"));
+    setprop("velocities/north-relground-fps",getprop("payload/orbiter/north-relground-fps"));
+    setprop("velocities/speed-down-fps",getprop("payload/orbiter/speed-down-fps"));
+    setprop("velocities/speed-east-fps",getprop("payload/orbiter/speed-east-fps"));
+    setprop("velocities/speed-north-fps",getprop("payload/orbiter/speed-north-fps"));
+    setprop("velocities/uBody-fps",getprop("payload/orbiter/uBody-fps"));
+    setprop("velocities/vBody-fps",getprop("payload/orbiter/vBody-fps"));
+   #setprop("velocities/vertical-speed-fps",getprop("payload/orbiter/vertical-speed-fps"));
+    setprop("velocities/wBody-fps",getprop("payload/orbiter/wBody-fps"));
+    setprop("velocities/mach",getprop("payload/orbiter/mach")); # should be last
+					
+					
+					
+					
+					
+					
+					-->
+
+
+					                <int n="0" alias="/instrumentation/datalink/channel"/> <!--Sam Code-->
+                <int n="2" type="int">0</int>
+
+                <string n="6" type="string"></string><!--Radar Spike-->
+                <string n="7" type="string"></string><!--datalink-->
+                    <string n="0"></string>
+            </generic>
+        </multiplay>
+		<failure-manager>
+			<engines>
+				<engine n="0">
+					<serviceable type="bool">true</serviceable>
+				</engine>
+				<engine n="1">
+					<serviceable type="bool">true</serviceable>
+				</engine>
+			</engines>
+		</failure-manager>
+		
+
+		<menubar>
+			<default>
+               <menu n="100">
+                    <label>Advanced Functions</label>
+                    <enabled type="bool">true</enabled>
+                                        <item>
+                      <label>KY-58 Secure MP-Chat Config</label>
+                      <name>enemies</name>
+                      <binding>
+                        <command>dialog-show</command>
+                        <dialog-name>ky58settings</dialog-name>
+                      </binding>
+                    </item>
+
+
+      				<item>
+                        <label>Load 6 ASM-120</label>
+                        <binding>
+                            <command>nasal</command>
+                            <script>
+                                f22.loadasp120();
+                            </script>
+                        </binding>
+                    </item>
+      				<item>
+                        <label>Load 6 ASM-120 | 2 ASM-9</label>
+                        <binding>
+                            <command>nasal</command>
+                            <script>
+                                f22.loadasp120asp9();
+                            </script>
+                        </binding>
+                    </item>
+      				<item>
+                        <label>Load 6 SGM-120 | 2 ASM-120</label>
+                        <binding>
+                            <command>nasal</command>
+                            <script>
+                                f22.loadsgm120();
+                            </script>
+                        </binding>
+                    </item>
+<item>
+        <label>KY-58 Secure MP-Chat</label>
+        <binding>
+            <command>dialog-show</command>
+            <dialog-name>secure</dialog-name>
+        </binding>
+			</item>
+                    <item>
+                        <label>Enable Extender Mode</label>
+                        <binding>
+                            <command>nasal</command>
+                            <script>
+                    RC.timer_searchSAM.start();
+                            </script>
+                        </binding>
+                    </item>
+                                        <item>
+                        <label>Disable Extender Mode</label>
+                        <binding>
+                            <command>nasal</command>
+                            <script>
+                    RC.timer_searchSAM.stop();
+                            </script>
+                        </binding>
+                    </item>
+                    <item>
+                      <label>Change SCC Targets</label>
+                      <name>enemies</name>
+                      <binding>
+                        <command>dialog-show</command>
+                        <dialog-name>enemies</dialog-name>
+                      </binding>
+                    </item>
+
+                    <item>
+                      <label>Change Sam Control Center Code (Datalink)</label>
+                      <name>enemies</name>
+                      <binding>
+                        <command>dialog-show</command>
+                        <dialog-name>priority</dialog-name>
+                      </binding>
+                    </item>
+                    <item>
+                        <label>SGM Nuclear</label>
+                        <binding>
+                            <command>nasal</command>
+                            <script>
+							missile.MISSILE.TESTSGM(1,0.5,10000,90,180,"ANTI-SAT");
+                            </script>
+                        </binding>
+                    </item>
+    
+                    <item>
+                        <label>Event Log</label>
+                        <binding>
+                            <command>dialog-show</command>
+                            <dialog-name>flightlog</dialog-name>
+                        </binding>
+                    </item>
+                </menu>
+
+
+				<menu n="10">
+					<label>SR-71</label>
+					<enabled type="bool">true</enabled>
+					<item n="0">
+						<label>Sensor Interface</label>
+						<binding>
+							<command>nasal</command>
+							<script>sensors.sensors_dialog.open()</script>
+						</binding>
+					</item>
+					<item n="1">
+					    <label>Event Log</label>
+					    <binding>
+						<command>dialog-show</command>
+						<dialog-name>flightlog</dialog-name>
+					    </binding>
+					</item>
+					<item n="2">
+					    <label>IFF channel</label>
+					    <binding>
+						<command>dialog-show</command>
+						<dialog-name>iff</dialog-name>
+					    </binding>
+						</item>
+					<item n="3">
+						<label>Orbital Trajectory</label>
+						<binding>
+							<command>nasal</command>
+							<script>canvasdl.cdlg_traj_map.init();screen.log.write("If MET freezes, Close and reopen Orbital Trajectory. Make sure you dont show landing sites nor history");</script>
+						</binding>
+					</item>
+				</menu>
+			</default>
+		</menubar>
+		
+        <help include="Help/BlackBird-help.xml"/>
+
+
+		
+
+    <weight n="0">
+      <name>pylon1</name>
+      <weight-lb type="double"> 0 </weight-lb>
+      <selected>none</selected>
+      <offsets>
+    <x-m type="double"> -3.8  </x-m>
+    <y-m type="double"> 0.3 </y-m>
+    <z-m type="double"> -1.6 </z-m>
+      </offsets>
+      <opt><name>none</name>              <lbs type="double">    0.00 </lbs></opt>
+      <opt><name>R-27R</name>                           <lbs type="double">  230.21 </lbs></opt>
+      <opt><name>R-27ER</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-27T</name>                 <lbs type="double">  230.91 </lbs></opt>
+      <opt><name>R-27ET</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-77</name>              <lbs type="double">  230.00 </lbs></opt>
+    </weight>
+
+    <weight n="1">
+      <name>pylon2</name>
+      <weight-lb type="double"> 0 </weight-lb>
+      <selected>none</selected>
+      <offsets>
+    <x-m type="double"> -3.8  </x-m>
+    <y-m type="double"> 0.4 </y-m>
+    <z-m type="double"> -1.6 </z-m>
+      </offsets>
+      <opt><name>none</name>              <lbs type="double">    0.00 </lbs></opt>
+      <opt><name>R-27R</name>                           <lbs type="double">  230.21 </lbs></opt>
+      <opt><name>R-27ER</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-27T</name>                 <lbs type="double">  230.91 </lbs></opt>
+      <opt><name>R-27ET</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-77</name>              <lbs type="double">  230.00 </lbs></opt>
+    </weight>
+
+    <weight n="2">
+      <name>pylon3</name>
+      <tank>2</tank>
+      <weight-lb type="double"> 0 </weight-lb>
+      <offsets>
+          <x-m type="double"> -0.4 </x-m>
+          <y-m type="double"> -3.4 </y-m>
+          <z-m type="double"> -1.1 </z-m>
+      </offsets>
+      <selected>none</selected>
+      <opt><name>none</name>              <lbs type="double">    0.00 </lbs></opt>
+      <opt><name>R-27R</name>                           <lbs type="double">  230.21 </lbs></opt>
+      <opt><name>R-27ER</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-27T</name>                 <lbs type="double">  230.91 </lbs></opt>
+      <opt><name>R-27ET</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-77</name>              <lbs type="double">  230.00 </lbs></opt>
+    </weight>
+
+    <weight n="3">
+      <name>pylon4</name>
+      <weight-lb type="double"> 0 </weight-lb>
+      <selected>none</selected>
+      <offsets>
+    <x-m type="double"> -3.8  </x-m>
+    <y-m type="double"> -0.4 </y-m>
+    <z-m type="double"> -1.6 </z-m>
+      </offsets>
+    </weight>
+
+    <weight n="4">
+      <name>pylon5</name>
+      <weight-lb type="double"> 0 </weight-lb>
+      <selected>none</selected>
+      <offsets>
+          <x-m type="double"> -0.4 </x-m>
+          <y-m type="double"> 3.4 </y-m>
+          <z-m type="double"> -1.1 </z-m>
+      </offsets>
+    </weight>
+
+    <weight n="5">
+      <name>pylon6</name>
+      <weight-lb type="double"> 0 </weight-lb>
+      <selected>none</selected>
+      <offsets>
+    <x-m type="double"> -3.8  </x-m>
+    <y-m type="double"> -0.65 </y-m>
+    <z-m type="double"> -1.6 </z-m>
+      </offsets>
+      <opt><name>none</name>              <lbs type="double">    0.00 </lbs></opt>
+      <opt><name>R-27R</name>                           <lbs type="double">  230.21 </lbs></opt>
+      <opt><name>R-27ER</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-27T</name>                 <lbs type="double">  230.91 </lbs></opt>
+      <opt><name>R-27ET</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-77</name>              <lbs type="double">  230.00 </lbs></opt>
+    </weight>
+
+
+<!--pylon 7 and pylon 8 are aim-9s!-->
+    <weight n="6">
+      <name>pylon7</name>
+      <weight-lb type="double"> 0 </weight-lb>
+      <selected>none</selected>
+      <offsets>
+<x-m type="double"> -3.8  </x-m>
+<y-m type="double"> 1.7 </y-m>
+<z-m type="double"> -1.3 </z-m>
+      </offsets>
+      <opt><name>none</name>              <lbs type="double">    0.00 </lbs></opt>
+      <opt><name>R-27R</name>             <lbs type="double">  230.21 </lbs></opt>
+      <opt><name>R-27ER</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-27T</name>             <lbs type="double">  230.91 </lbs></opt>
+      <opt><name>R-27ET</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-77</name>              <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-73</name>              <lbs type="double">  230.00 </lbs></opt>
+    </weight>
+
+
+<!--pylon 7 and pylon 8 are aim-9s!-->
+
+    <weight n="7">
+      <name>pylon8</name>
+      <weight-lb type="double"> 0 </weight-lb>
+      <selected>none</selected>
+      <offsets>
+<x-m type="double"> -3.8  </x-m>
+<y-m type="double"> -1.7 </y-m>
+<z-m type="double"> -1.3 </z-m>
+      </offsets>
+      <opt><name>none</name>              <lbs type="double">    0.00 </lbs></opt>
+      <opt><name>R-27R</name>                           <lbs type="double">  230.21 </lbs></opt>
+      <opt><name>R-27ER</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-27T</name>                 <lbs type="double">  230.91 </lbs></opt>
+      <opt><name>R-27ET</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-77</name>              <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-73</name>              <lbs type="double">  230.00 </lbs></opt>
+    </weight>
+
+    <weight n="8">
+      <name>pylon9</name>
+      <weight-lb type="double"> 0 </weight-lb>
+      <selected>none</selected>
+      <offsets>
+          <x-m type="double"> -3.8</x-m>
+          <y-m type="double"> -0.65 </y-m>
+          <z-m type="double"> -1.6 </z-m>
+      </offsets>
+      <opt><name>none</name>              <lbs type="double">    0.00 </lbs></opt>
+      <opt><name>R-27R</name>                           <lbs type="double">  230.21 </lbs></opt>
+      <opt><name>R-27ER</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-27T</name>                 <lbs type="double">  230.91 </lbs></opt>
+      <opt><name>R-27ET</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-77</name>              <lbs type="double">  230.00 </lbs></opt>
+    </weight>
+
+    <weight n="9">
+      <name>pylon10</name>
+      <weight-lb type="double"> 0 </weight-lb>
+      <selected>none</selected>
+      <offsets>
+    <x-m type="double"> -3.8  </x-m>
+    <y-m type="double"> -0.2 </y-m>
+    <z-m type="double"> -1.6 </z-m>
+      </offsets>
+      <opt><name>none</name>              <lbs type="double">    0.00 </lbs></opt>
+      <opt><name>R-27R</name>                           <lbs type="double">  230.21 </lbs></opt>
+      <opt><name>R-27ER</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-27T</name>                 <lbs type="double">  230.91 </lbs></opt>
+      <opt><name>R-27ET</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-77</name>              <lbs type="double">  230.00 </lbs></opt>
+
+    </weight>
+
+
+
+
+	    <weight n="10">
+      <name>pylon11</name>  <!--For ejection seat-->
+      <weight-lb type="double"> 0 </weight-lb>
+      <selected>eject</selected>
+      <offsets>
+
+			<x-m archive="y">5</x-m><!--  direita/esquerda/de z para x   -->
+			<y-m archive="y">0</y-m><!-- cima/baixo/de y para y   -->
+			<z-m archive="y">-5.1</z-m><!--  frente/atraz/de x para z  -->
+      </offsets>
+
+    </weight>
+
+
+   <weight n="11">
+      <name>pylon4-2</name>
+      <weight-lb type="double"> 0 </weight-lb>
+      <selected>none</selected>
+      <offsets>
+    <x-m type="double"> -3.8  </x-m>
+    <y-m type="double"> -0.67 </y-m>
+    <z-m type="double"> -1.6 </z-m>
+      </offsets>
+    </weight>
+
+
+    <weight n="12">
+      <name>pylon10-2</name>
+      <weight-lb type="double"> 0 </weight-lb>
+      <selected>none</selected>
+      <offsets>
+    <x-m type="double"> -3.8  </x-m>
+    <y-m type="double"> -0.39 </y-m>
+    <z-m type="double"> -1.6 </z-m>
+      </offsets>
+      <opt><name>none</name>              <lbs type="double">    0.00 </lbs></opt>
+      <opt><name>R-27R</name>                           <lbs type="double">  230.21 </lbs></opt>
+      <opt><name>R-27ER</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-27T</name>                 <lbs type="double">  230.91 </lbs></opt>
+      <opt><name>R-27ET</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-77</name>              <lbs type="double">  230.00 </lbs></opt>
+
+    </weight>
+	    <weight n="13">
+      <name>pylon1-2</name>
+      <weight-lb type="double"> 0 </weight-lb>
+      <selected>none</selected>
+      <offsets>
+    <x-m type="double"> -3.8 </x-m>
+    <y-m type="double"> 0.39 </y-m>
+    <z-m type="double"> -1.6 </z-m>
+      </offsets>
+      <opt><name>none</name>              <lbs type="double">    0.00 </lbs></opt>
+      <opt><name>R-27R</name>                           <lbs type="double">  230.21 </lbs></opt>
+      <opt><name>R-27ER</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-27T</name>                 <lbs type="double">  230.91 </lbs></opt>
+      <opt><name>R-27ET</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-77</name>              <lbs type="double">  230.00 </lbs></opt>
+    </weight>
+
+    <weight n="14">
+      <name>pylon2-1</name>
+      <weight-lb type="double"> 0 </weight-lb>
+      <selected>none</selected>
+      <offsets>
+    <x-m type="double"> -3.8  </x-m>
+    <y-m type="double"> 0.67 </y-m>
+    <z-m type="double"> -1.6 </z-m>
+      </offsets>
+      <opt><name>none</name>              <lbs type="double">    0.00 </lbs></opt>
+      <opt><name>R-27R</name>                           <lbs type="double">  230.21 </lbs></opt>
+      <opt><name>R-27ER</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-27T</name>                 <lbs type="double">  230.91 </lbs></opt>
+      <opt><name>R-27ET</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-77</name>              <lbs type="double">  230.00 </lbs></opt>
+    </weight>
+
+
+	    <weight n="15">
+      <name>pylon1-2</name>
+      <weight-lb type="double"> 0 </weight-lb>
+      <selected>none</selected>
+      <offsets>
+    <x-m type="double"> -0.4  </x-m>
+    <y-m type="double"> 0.39 </y-m>
+    <z-m type="double"> -1.6 </z-m>
+      </offsets>
+      <opt><name>none</name>              <lbs type="double">    0.00 </lbs></opt>
+      <opt><name>R-27R</name>                           <lbs type="double">  230.21 </lbs></opt>
+      <opt><name>R-27ER</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-27T</name>                 <lbs type="double">  230.91 </lbs></opt>
+      <opt><name>R-27ET</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-77</name>              <lbs type="double">  230.00 </lbs></opt>
+    </weight>
+
+    <weight n="16">
+      <name>pylon2-1</name>
+      <weight-lb type="double"> 0 </weight-lb>
+      <selected>none</selected>
+      <offsets>
+    <x-m type="double"> -0.4  </x-m>
+    <y-m type="double"> -0.39 </y-m>
+    <z-m type="double"> -1.6 </z-m>
+      </offsets>
+      <opt><name>none</name>              <lbs type="double">    0.00 </lbs></opt>
+      <opt><name>R-27R</name>                           <lbs type="double">  230.21 </lbs></opt>
+      <opt><name>R-27ER</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-27T</name>                 <lbs type="double">  230.91 </lbs></opt>
+      <opt><name>R-27ET</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-77</name>              <lbs type="double">  230.00 </lbs></opt>
+    </weight>
+
+    <weight n="17">
+      <name>pylon17</name>
+      <weight-lb type="double"> 0 </weight-lb>
+      <offsets>
+          <x-m type="double"> -0.4 </x-m>
+          <y-m type="double"> -3.4 </y-m>
+          <z-m type="double"> -1.1 </z-m>
+      </offsets>
+      <selected>none</selected>
+      <opt><name>none</name>              <lbs type="double">    0.00 </lbs></opt>
+      <opt><name>R-27R</name>                           <lbs type="double">  230.21 </lbs></opt>
+      <opt><name>R-27ER</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-27T</name>                 <lbs type="double">  230.91 </lbs></opt>
+      <opt><name>R-27ET</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-77</name>              <lbs type="double">  230.00 </lbs></opt>
+    </weight>
+    <weight n="18">
+      <name>pylon18</name>
+      <weight-lb type="double"> 0 </weight-lb>
+      <offsets>
+          <x-m type="double"> -0.4 </x-m>
+          <y-m type="double"> 3.4 </y-m>
+          <z-m type="double"> -1.1 </z-m>
+      </offsets>
+      <selected>none</selected>
+      <opt><name>none</name>              <lbs type="double">    0.00 </lbs></opt>
+      <opt><name>R-27R</name>                           <lbs type="double">  230.21 </lbs></opt>
+      <opt><name>R-27ER</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-27T</name>                 <lbs type="double">  230.91 </lbs></opt>
+      <opt><name>R-27ET</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-77</name>              <lbs type="double">  230.00 </lbs></opt>
+    </weight>
+    <weight n="19">
+      <name>pylon17</name>
+      <weight-lb type="double"> 0 </weight-lb>
+      <offsets>
+          <x-m type="double"> -0.4 </x-m>
+          <y-m type="double"> -3.4 </y-m>
+          <z-m type="double"> -1.1 </z-m>
+      </offsets>
+      <selected>none</selected>
+      <opt><name>none</name>              <lbs type="double">    0.00 </lbs></opt>
+      <opt><name>R-27R</name>                           <lbs type="double">  230.21 </lbs></opt>
+      <opt><name>R-27ER</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-27T</name>                 <lbs type="double">  230.91 </lbs></opt>
+      <opt><name>R-27ET</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-77</name>              <lbs type="double">  230.00 </lbs></opt>
+    </weight>
+    <weight n="20">
+      <name>pylon18</name>
+      <weight-lb type="double"> 0 </weight-lb>
+      <offsets>
+          <x-m type="double"> -0.4 </x-m>
+          <y-m type="double"> 3.4 </y-m>
+          <z-m type="double"> -1.1 </z-m>
+      </offsets>
+      <selected>none</selected>
+      <opt><name>none</name>              <lbs type="double">    0.00 </lbs></opt>
+      <opt><name>R-27R</name>                           <lbs type="double">  230.21 </lbs></opt>
+      <opt><name>R-27ER</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-27T</name>                 <lbs type="double">  230.91 </lbs></opt>
+      <opt><name>R-27ET</name>            <lbs type="double">  230.00 </lbs></opt>
+      <opt><name>R-77</name>              <lbs type="double">  230.00 </lbs></opt>
+    </weight>
+    </sim>
+
+<orientation>
+            <direction-heading-deg type="double">0.0</direction-heading-deg>
+</orientation>
+
+
+
+    <input include="Inputs/Blackbird-input-wep.xml"/>
+	
+    <environment>
+        <params>
+            <control-fdm-atmosphere type="bool">false</control-fdm-atmosphere>
+        </params>
+    </environment>
+
+    <controls>
+
+	  <armament>
+<AMRAAMBITSYNCLOCK type="int">0</AMRAAMBITSYNCLOCK>
+<cameras type="int">-1</cameras>
+<GPSDLT type="int">-1</GPSDLT>
+<pos>
+<!--Properties for missile alert-->
+<lat type="float">0</lat>
+<lon type="float">0</lon>
+<alt type="float">0</alt>
+<hdg type="float">0</hdg>
+<ptch type="float">0</ptch>
+<speed type="float">0</speed>
+</pos>
+
+
+<pickle type="double"> 0 </pickle>
+<status type="int">0</status>
+
+
+
+
+      <missile-trigger type="float">0</missile-trigger>
+
+<rdt type="int">0</rdt> <!--Right Drop Tank Show/Hide-->
+<ldt type="int">0</ldt> <!--Left Drop Tank Show/Hide-->
+<extpylons type="int">0</extpylons> <!--External Pylons for droptanks Show/Hide-->
+    <!--
+      note :
+        Missile property. the value here doesn't really count, beacause it's reloaded
+        by a Nasal file Loading_missiles.nas for each missile. Anyway this is nessecary for variable declaration
+    -->
+    <selected-weapon-digit type="int">0</selected-weapon-digit>
+    <selected-weapon type="string">none</selected-weapon>
+    <missile>
+<eject>
+      <current-pylon type="int"> 0 </current-pylon>
+</eject>
+      <flareres type="double"> 0.80 </flareres>
+      <name>None_press_m</name>
+      <type-id type="int">57</type-id>
+      <address>Aircraft/SU-27SK/Models/Stores/Missiles/R-27R/R-27R.xml</address>
+      <addressNoSmoke>Aircraft/SU-27SK/Models/Stores/Missiles/R-27R/R-27R.xml</addressNoSmoke>
+      <addressExplosion>Aircraft/SU-27SK/Models/Effects/MissileExplosion/explosion.xml</addressExplosion>
+      <count type="int">0</count>
+      <nearest-target type="int"> -1 </nearest-target>
+      <sound-on-off type="bool">false</sound-on-off>
+      <sound-volume type="double"> 0.12 </sound-volume>
+      <target-range-nm type="double"> 0 </target-range-nm>
+      <max-detection-rng-nm type="int"> 45 </max-detection-rng-nm>
+      <!-- ' not real impact yet-->
+      <fov-deg type="int"> 25 </fov-deg>
+      <!-- ' seeker optical FOV -->
+      <detection-fov-deg type="int"> 60 </detection-fov-deg>
+      <!-- ' search pattern diameter (rosette scan) -->
+      <track-max-deg type="int"> 110 </track-max-deg>
+      <!-- ' seeker max total angular rotation -->
+      <max-g type="int"> 100 </max-g>
+      <!-- ' in turn -->
+      <thrust-lbs type="double"> 300 </thrust-lbs>
+      <!-- ' guess -->
+      <thrust-duration-sec type="int"> 30 </thrust-duration-sec>
+      <!-- ' Mk.36 Mod.7,8 -->
+      <weight-launch-lbs> 216 </weight-launch-lbs>
+      <weight-warhead-lbs> 30 </weight-warhead-lbs>
+      <drag-coeff type="double"> 0.05 </drag-coeff>
+      <!-- ' guess - original 0.05-->
+      <drag-area type="double"> 0.043 </drag-area>
+      <!-- ' sq ft -->
+      <maxExplosionRange type="int"> 200 </maxExplosionRange>
+      <!--
+        note :
+          due to the code, more the speed is important, more we need to have this
+          figure high
+      -->
+      <maxspeed type="double"> 4 </maxspeed>
+      <!-- ' in Mach -->
+      <life> 60 </life>
+      <sdspeed> 60 </sdspeed>
+      <!--
+        note :
+          "Fox1" for guided by the aircraft radar (semi active) AIM7,
+          "Fox2" for infrared AIM9,
+          "Fox3" for intern missile Radar AIM120, AIM54 
+          "A/G" air to ground
+      -->
+      <fox>Fox 2</fox>
+      <isbomb>0</isbomb>
+      <chute>0</chute>
+      <!--
+        note :
+          if the missile fall before thrust start or if there is some kind of "rail"
+      -->
+      <rail type="bool">true</rail>
+      <!--
+        note :
+          for cruise missile, in feet.0 is off.below 10000 feet is terrain following
+      -->
+      <cruise_alt type="int"> 0 </cruise_alt>
+      <current-pylon type="int"> 0 </current-pylon>
+<pos2>
+      <a1 type="double"> 0 </a1>
+      <a2 type="double"> 0 </a2>
+      <a3 type="double"> 0 </a3>
+      <a4 type="double"> 0 </a4>
+      <a5 type="double"> 0 </a5>             <!--Optional Missile View-->
+      <a6 type="double"> 0 </a6>  <!--Used for setting the camera to the ejection seat-->
+      <a7 type="double"> 0 </a7>           <!--See Misc.nas to see how it works-->
+      <a8 type="double"> 0 </a8>               
+      <a9 type="double"> 0 </a9>
+      <a10 type="double"> 0 </a10>
+</pos2>  
+
+    </missile>
+    
+
+    <trigger type="bool">false</trigger>
+    <master-arm type="bool">false</master-arm>
+    <!-- ' 0=OFF, 1=GUN, 2=A/A, 3=A/G -->
+    <stick-selector type="int">2</stick-selector>
+    <position-norm type="int">1</position-norm>
+    
+    <station n="0">
+      <release type="bool">false</release>
+    </station>
+    
+    <station n="1">
+      <release type="bool">false</release>
+    </station>
+    
+    <station n="2">
+      <release type="bool">false</release>
+    </station>
+    
+    <station n="3">
+      <release type="bool">false</release>
+    </station>
+    
+    <station n="4">
+      <release type="bool">false</release>
+    </station>
+    
+    <station n="5">
+      <release type="bool">false</release>
+    </station>
+    
+    <station n="6">
+      <release type="bool">false</release>
+    </station>
+    
+    <station n="7">
+      <release type="bool">false</release>
+    </station>
+    
+    <station n="8">
+      <release type="bool">false</release>
+    </station>
+    
+    <station n="9">
+      <release type="bool">false</release>
+    </station>
+    
+    <station n="10">  <!--For ejection-->
+      <release type="bool">false</release>
+    </station>
+
+
+    <!--Double GBUs-->
+
+    <station n="11">  
+      <release type="bool">false</release>
+    </station>
+        <station n="12">  
+      <release type="bool">false</release>
+    </station>
+        <station n="13">  
+      <release type="bool">false</release>
+    </station>
+        <station n="14">  
+      <release type="bool">false</release>
+    </station>
+        <station n="15">  
+      <release type="bool">false</release>
+    </station>
+        <station n="16">  
+      <release type="bool">false</release>
+    </station>
+
+        <station n="17">  
+      <release type="bool">false</release>
+    </station>
+        <station n="18">  
+      <release type="bool">false</release>
+    </station>
+        <station n="19">  
+      <release type="bool">false</release>
+    </station>
+        <station n="20">  
+      <release type="bool">false</release>
+    </station>
+
+<gunsight>		
+		<!-- gunsight computer parameters -->
+        
+        <!-- start/stop the sight computer
+       	     the computer will be reinitialized if the power is cycled -->	
+        <sightmode type="int">0</sightmode>		
+        <computer-on type="int">0</computer-on>			 	
+        <!-- offset of guns below sight line in feet -->		
+		<z-offsetFeet type="float">3.125</z-offsetFeet>
+		<!-- average lateral offset of guns in feet relative to sight line -->
+        <y-offsetFeet type="float">0.0</y-offsetFeet>
+		<!-- elevation of guns relative to alpha in degrees -->
+        <gunElevationDegrees type="float">1.0</gunElevationDegrees>
+        <ballisticCoefficienct type="float">0.00136354</ballisticCoefficienct> <!-- 0.50 BMG -->
+        <muzzleVelocity type="float">3150.0</muzzleVelocity>  <!-- feet per second 0.50 BMG -->
+		<!-- convergence distance in feet -->
+        <gunHarminizationRangeFeet type="float">900.0</gunHarminizationRangeFeet>
+		<timeStep type="float">0.1</timeStep>  <!-- cycle rate of gun sight computer in seconds -->
+		<!-- sight computer damping factor must be between 0.3 and 1.0 -->
+		<dampingFactor type="float">1.0</dampingFactor>	
+		<gunsight-computer-initialized type="int">0</gunsight-computer-initialized>
+		<maxAzimuth type="int">170</maxAzimuth>  <!-- maximum sight deflection in mils -->
+		<maxElevation type="int">170</maxElevation>
+        <SIG type="float">0.4</SIG>
+        <timeStep type="float">0.2</timeStep>
+		
+		<!-- K14 parameters -->
+		
+		<power-on type="int">0</power-on>
+        <intensity type="float">1.0</intensity>
+		<mask-off type="int">1</mask-off>
+		<reticleSelectorPos type="int">0</reticleSelectorPos>
+		<rocketLadder type="int">1</rocketLadder>  <!-- set to 0 for K14 and 1 for other K14 models -->
+		
+		<!-- The next three are to setup the reticle to the correct starting values -->
+		<span type="int">30</span>
+		<mils type="float">0.0</mils>
+		<range type="float">1000.0</range> <!-- in feet -->
+		
+		<fixedReticleOn type="int">0</fixedReticleOn>
+		<zCenterLine type="float">0.7375</zCenterLine> <!-- sight line distance from model z axis in meters -->
+		<K14C type="int">0</K14C>  <!-- set to 1 for K14C -->
+		
+		<sunScreenDown type="int">1</sunScreenDown>
+     </gunsight>
+
+
+  </armament>
+
+
+            <isspace type="double">0</isspace>
+            <isorbit type="double">0</isorbit>
+
+        <!-- Start with the Parking Brake on -->
+        <gear>
+            <brake-parking type="double">1.0</brake-parking>
+        </gear>
+	<iff>
+	    <channel type="int">0000</channel>
+	</iff>
+        <switches>
+            <landing-light type="bool">true</landing-light>
+            <master-avionics type="bool">false</master-avionics>
+        </switches>
+
+        <lighting>
+            <instruments-norm type="double">0</instruments-norm>
+        </lighting>
+
+        <engines>
+            <engine n="0">
+                <fuel-pump type="bool">false</fuel-pump>
+                <master-bat type="bool">false</master-bat>
+            </engine>
+            <engine n="1">
+                <fuel-pump type="bool" >false</fuel-pump>
+                 <master-bat type="bool">false</master-bat>
+            </engine>
+        </engines>
+
+        <electric>
+            <master-switch type="bool">false</master-switch>
+            <battery-switch type="bool">false</battery-switch>
+            <external-power type="bool" >false</external-power>
+        </electric>
+
+        <flight>
+            <JAL type="double">0</JAL>
+            <canopy type="bool">true</canopy>
+            <op-refuel type="double">0</op-refuel>
+        </flight>
+        <jettison>
+            <canopy type="float">0</canopy>
+        </jettison>
+		<sensors>
+			<recording type="bool">0</recording> <!-- turns recording on or off -->
+			<mode type="string">SLR</mode> <!-- possible modes (for now) are SLR and OBC -->
+			<log-count type="int">0</log-count>
+			<ready-write type="bool">0</ready-write>
+			<!-- OBC -->
+			<obc>
+				<output-rate type="int">10</output-rate>
+				<exposures-remaining type="int">350</exposures-remaining>
+			</obc>
+			<!-- SLR -->
+			<slr>
+				<output-rate type="int">5</output-rate>
+				<exposures-remaining type="int">800</exposures-remaining>
+				<mode type="string">manual</mode>
+				<operate type="string">cold</operate>
+				<stab type="string">r</stab>
+				<srv type="string">r</srv>
+				<start-range type="int">10</start-range>
+				<side type="string">left</side>
+				<width type="string">narrow</width>
+			</slr>
+		<awacs>
+				<inthead type="int">5</inthead>
+		</awacs>
+		</sensors>
+
+    </controls>
+  <position>
+   <sea-level-radius-ft>26000000.0</sea-level-radius-ft>
+  </position>
+    <engines>
+        <engine n="0">
+                    <running>false</running>
+					<teb-shots type="int">16</teb-shots>
+					<aug-avail type="bool">true</aug-avail>
+        </engine>
+        <engine n="1">
+                    <running>false</running>
+					<teb-shots type="int">16</teb-shots>
+					<aug-avail type="bool">true</aug-avail>
+        </engine>
+    </engines>
+	
+		<consumables n="0">
+		<fuel>
+			<tank n="0">
+				<name>Right Fuel Manifold</name>
+			</tank>
+			<tank n="1">
+				<name>Left Fuel Manifold</name>
+			</tank>
+			<tank n="2">
+				<name>Tank 1A</name>
+			</tank>
+			<tank n="3">
+				<name>Tank 1</name>
+			</tank>
+			<tank n="4">
+				<name>Tank 2</name>
+			</tank>
+			<tank n="5">
+				<name>Tank 3</name>
+			</tank>
+			<tank n="6">
+				<name>Tank 4</name>
+			</tank>
+			<tank n="7">
+				<name>Tank 5</name>
+			</tank>
+			<tank n="8">
+				<name>Tank 6A</name>
+			</tank>
+			<tank n="9">
+				<name>Tank 6B</name>
+			</tank>
+		</fuel>
+	</consumables>
+	
+
+    <autopilot>
+            <settings>
+                    <target-altitude-ft type="float">33000</target-altitude-ft>
+                    <target-pushover-altitude-ft type="float">30000</target-pushover-altitude-ft>
+                    <target-aoa-deg type="float">0.3</target-aoa-deg>
+                    <target-pitch-deg type="float">10</target-pitch-deg>
+                    <true-heading-deg>180</true-heading-deg>
+            </settings>
+    </autopilot>
+
+    <instrumentation>
+	<iff>
+	    <power_prop type="string">instrumentation/iff/power</power_prop>
+	    <channel_prop
+		type="string">instrumentation/iff/channel</channel_prop>
+	    <channel type="int">0000</channel>
+	    <power type="bool">true</power>
+	</iff>
+	        <datalink>
+            <data type="int">0</data>
+            <power type="bool">true</power>
+            <channel type="int">1212</channel>
+            <power_prop type="string">/instrumentation/datalink/power</power_prop>
+            <channel_prop type="string">instrumentation/datalink/channel</channel_prop>
+            <receive_period type="double">1</receive_period>
+        </datalink>
+            <wxradar>
+                <switch type="string" archive="y">ON</switch>
+                <mode-control type="int" archive="y">1</mode-control>
+                <display-controls>
+                        <WX type="bool" archive="y">true</WX>
+                        <centre type="bool"  archive="y">true</centre>
+                        <data type="bool"  archive="y">false</data>
+                        <pos type="bool" archive="y">false</pos>
+                        <rotate type="bool" archive="y">true</rotate>
+                        <symbol type="bool" archive="y">true</symbol>
+                </display-controls>
+                <serviceable type="bool">true</serviceable>
+                <range type="int"  archive="y">40</range>
+                <mode type="string" archive="y">WX</mode>
+                <lightning type="bool"  archive="y">false</lightning>
+                <display-mode type="string"  archive="y">plan</display-mode>
+                <minimized type="bool" archive="y">false</minimized>
+            </wxradar>
+		 <rwr>
+      <display-lighting-intens type="double">0.4</display-lighting-intens>
+      <symbology-lighting-intens type="double">1</symbology-lighting-intens>
+    </rwr>
+
+		<enav><selected type="int">3</selected></enav>
+<radar>
+
+  <range type="int" archive="y">40</range>
+  <range-factor type="double" archive="n">0.001888</range-factor>
+  <minimized type="bool" archive="y">false</minimized>
+  <selected type="int">2</selected>
+  <lock type="int">0</lock>
+  <lock2 type="int">0</lock2>
+  <threat-spotted type="int">0</threat-spotted> <!--for lockhelper.nas-->
+      <!-- inicio en pruebas -->
+  <enabled type="bool">0</enabled>
+  <grid type="bool">1</grid>
+  <az-field type="double">120</az-field>
+
+  <range type="double">150</range>
+  <range-selected type="double">50</range-selected>
+  <radar2-range type="double">150</radar2-range>
+  <display-rdr type="bool">true</display-rdr>
+  <radar-standby type="int">0</radar-standby>
+<mode>
+  <rws type="bool">true</rws>
+  <tws-auto type="bool">false</tws-auto>
+    <main type="int">0</main> <!--0 TWS 1 RWS 2 Custom-->
+</mode>
+
+</radar> 
+
+
+  <radar2>
+  <hasrcs type="double">0</hasrcs> <!--will be functional soon-->
+  <direction type="double">0</direction>
+	<lockmarker type="double">0</lockmarker>
+   <sweep-width-m type="double">0.0844</sweep-width-m>
+   <range-width-m type="double">0.0846</range-width-m>
+   <radius-ppi-display-m type="double">0.0846</radius-ppi-display-m>
+   <hud-eye-dist-m type="double">0.6705</hud-eye-dist-m>
+   <hud-radius-m type="double">0.071</hud-radius-m>
+   <sweep-speed type="double">1.5</sweep-speed>
+   <!--RWS Mode to start-->
+   <sweep-display-width type="double">0.0846</sweep-display-width>
+   <hud>
+    <target type="bool">1</target>
+   </hud>
+   <targets>
+    <aircraft n="0">
+      <display type="bool">1</display>
+      <x-shift type="double"/>
+      <y-shift type="double"/>
+      <rotation type="double"/>
+      <closure-last-time type="double"/>
+    </aircraft>
+    <aircraft n="1">
+      <display type="bool">1</display>
+      <x-shift type="double"/>
+      <y-shift type="double"/>
+      <rotation type="double"/>
+      <closure-last-time type="double"/>
+    </aircraft>
+    <aircraft n="2">
+      <display type="bool">1</display>
+      <x-shift type="double"/>
+      <y-shift type="double"/>
+      <rotation type="double"/>
+      <closure-last-time type="double"/>
+    </aircraft>
+    <aircraft n="3">
+      <display type="bool">1</display>
+      <x-shift type="double"/>
+      <y-shift type="double"/>
+      <rotation type="double"/>
+      <closure-last-time type="double"/>
+    </aircraft>
+    <aircraft n="4">
+      <display type="bool">1</display>
+      <x-shift type="double"/>
+      <y-shift type="double"/>
+      <rotation type="double"/>
+      <closure-last-time type="double"/>
+    </aircraft>
+    <aircraft n="5">
+      <display type="bool">1</display>
+      <x-shift type="double"/>
+      <y-shift type="double"/>
+      <rotation type="double"/>
+      <closure-last-time type="double"/>
+    </aircraft>
+    <aircraft n="6">
+      <display type="bool">1</display>
+      <x-shift type="double"/>
+      <y-shift type="double"/>
+      <rotation type="double"/>
+      <closure-last-time type="double"/>
+    </aircraft>
+    <aircraft n="7">
+      <display type="bool">1</display>
+      <x-shift type="double"/>
+      <y-shift type="double"/>
+      <rotation type="double"/>
+      <closure-last-time type="double"/>
+    </aircraft>
+   </targets>
+  </radar2>
+			<efis>
+				<inputs>
+					<arpt type="bool">true</arpt> <!-- show airports -->
+					<range-nm type="int">120</range-nm> <!-- range set to 120nm. May allow to be toggleable later. -->
+					<nd-centered type="bool">false</nd-centered>
+					<data type="bool">true</data>
+					<lh-vor-adf type="int">0</lh-vor-adf>
+					<rh-vor-adf type="int">0</rh-vor-adf>
+					<pos type="bool">false</pos>
+					<sta type="bool">true</sta>
+					<terr type="bool">false</terr>
+					<tfc type="bool">false</tfc>
+					<wpt type="bool">true</wpt>
+					<wxr type="bool">false</wxr>
+				</inputs>
+				<mfd>
+					<display-mode type="string">PLAN</display-mode>
+					<display-type type="string">CRT</display-type>
+					<rangearc type="bool">false</rangearc>
+					<true-north type="bool">false</true-north>
+				</mfd>
+				<hdg-trk-selected type="bool">false</hdg-trk-selected>
+				<hdg-bug-only type="bool">false</hdg-bug-only>
+			</efis>
+			<teb>
+				<display n="0" type="int">16</display>
+				<display n="1" type="int">16</display>
+			</teb>
+    </instrumentation>
+	
+	
+
+    <fdm><!-- Start with Canopy open -->
+            <jsbsim>
+                    <fcs>
+                            <canopy-cmd-norm>1</canopy-cmd-norm>
+                    </fcs>
+                    <systems>
+						     <orbital>
+      <gm type="double">14.07644180e15</gm>
+      <semimajor-axis-length-ft type="double">0.0</semimajor-axis-length-ft>
+      <eccentricity type="double">0.0</eccentricity>
+      <apoapsis-ft type="double">0.0</apoapsis-ft>
+      <apoapsis-km type="double">0.0</apoapsis-km>
+      <apoapsis-indicated-km type="double">0.0</apoapsis-indicated-km>
+      <apoapsis-hunderds-km type="double">0.0</apoapsis-hunderds-km>
+      <apoapsis-tens-km type="double">0.0</apoapsis-tens-km>
+      <apoapsis-ones-km type="double">0.0</apoapsis-ones-km>
+      <periapsis-ft type="double">0.0</periapsis-ft>
+      <periapsis-km type="double">0.0</periapsis-km>
+      <periapsis-indicated-km type="double">0.0</periapsis-indicated-km>
+      <periapsis-hunderds-km type="double">0.0</periapsis-hunderds-km>
+      <periapsis-tens-km type="double">0.0</periapsis-tens-km>
+      <periapsis-ones-km type="double">0.0</periapsis-ones-km>
+     </orbital>
+                        <lighting-instruments-norm>0.3</lighting-instruments-norm>
+                    </systems>
+            </jsbsim>
+    </fdm>
+
+	<systems>
+
+		<refuel>
+			<type>boom</type>
+			<serviceable type="bool">true</serviceable>
+			<max-fuel-transfer-lbs-min>6000</max-fuel-transfer-lbs-min>
+			<offset-x-m>0</offset-x-m>
+			<offset-y-m>0</offset-y-m>
+			<offset-z-m>0</offset-z-m>
+		</refuel>
+	</systems>
+
+	<payload>
+	    <armament>
+		<models type="string">Aircraft/SR71/Models/Armament/</models>
+		<msg type="bool">true</msg>
+		<spectator type="bool">false</spectator>
+		<MLW-bearing type="double">0</MLW-bearing>
+		<MLW-count type="int">0</MLW-count>
+		<MLW-launcher type="string"></MLW-launcher>
+		<MAW-bearing type="double">0</MAW-bearing>
+		<MAW-active type="bool">false</MAW-active>
+		<spike type="bool">false</spike>
+		<enable-craters type="bool">true</enable-craters>
+	    </armament>
+        <d-config>
+            <full_damage_dist_m type="double">-1</full_damage_dist_m>
+            <use_hitpoints_instead_of_failure_modes_bool type="bool">false</use_hitpoints_instead_of_failure_modes_bool>
+            <hp_max type="double">100</hp_max>
+            <hitable_by_air_munitions type="bool">true</hitable_by_air_munitions>
+            <hitable_by_cannon type="bool">true</hitable_by_cannon>
+            <is_fleet type="bool">false</is_fleet>
+            <rwr_to_screen type="bool">true</rwr_to_screen>
+            <rwr_audio_extended type="bool">true</rwr_audio_extended>
+            <tacview_supported type="bool">false</tacview_supported>
+            <m28_auto type="bool">false</m28_auto>
+            <mlw_max type="double">0</mlw_max>
+            <auto_flare_caller type="bool">false</auto_flare_caller>
+		</d-config>
+		<!-- Yep. this should go here... -->
+	
+
+	</payload>
+	
+	<nasal>
+	        <notifications>
+		    <file>Aircraft/SR71/Nasal/ArmamentNotification.nas</file>
+		    <file>Aircraft/SR71/Nasal/GeoBridgedTransmitter.nas</file>
+		</notifications>
+
+			<space>
+				<file>Aircraft/SR71/Nasal/space.nas</file>
+			</space>
+			<sr71>
+				<file>Aircraft/SR71/Nasal/sr71.nas</file>
+			</sr71>
+			<radar_logic>
+				<file>Aircraft/SR71/Nasal/radar-logic.nas</file>
+			</radar_logic>
+			<sensors>
+				<file>Aircraft/SR71/Nasal/sensor_control.nas</file>
+			</sensors>
+			<terrain>
+				<file>Aircraft/SR71/Nasal/terrain.nas</file>
+			</terrain>
+			<aar>
+				<file>Aircraft/SR71/Nasal/aar.nas</file>
+			</aar>
+			<damage>
+				<file>Aircraft/SR71/Nasal/damage.nas</file>
+			</damage>
+			<orbit>
+				<file>Aircraft/SR71/Nasal/autoorbit.nas</file>
+			</orbit>
+			<nav_display>
+				<file>Aircraft/SR71/Models/Instruments/NavDisplay/nd.nas</file>
+			</nav_display>
+        <crashandstress>
+	    <file>Aircraft/SR71/Nasal/crash-and-stress.nas</file>
+	</crashandstress>    <!-- plane go boom when crash -->
+	<iff>
+	    <file>Aircraft/SR71/Nasal/iff.nas</file>
+	</iff>
+
+	<datalink>
+<file>Aircraft/SR71/Nasal/datalink.nas</file>
+</datalink>
+
+
+
+  <SpaceShuttle>	
+   <file>Aircraft/SR71/Nasal/canvasdraw.nas</file>
+   <file>Aircraft/SR71/Nasal/coordinates.nas</file>
+  </SpaceShuttle>
+
+
+	<canvasdl>
+<file>Aircraft/SR71/Nasal/trajmap.nas</file>
+   <file>Aircraft/SR71/Nasal/canvaswidgits.nas</file>   
+</canvasdl>
+		<KY58>
+			<file>Aircraft/SR71/Nasal/secure.nas</file>
+		</KY58>
+
+
+			<drone>
+			<file>Aircraft/SR71/Nasal/drone.nas</file>
+		</drone>
+
+
+ <reversethrust>
+		<file>Aircraft/SR71/Nasal/reverse-thrust.nas</file>
+		</reversethrust>
+		 <misc>
+		<file>Aircraft/SR71/Nasal/misc.nas</file>
+		</misc>
+		 <screen>
+		<file>Aircraft/SR71/Nasal/screen.nas</file>
+		</screen>
+		 <drone>
+		<file>Aircraft/SR71/Nasal/spacedrone.nas</file>
+		</drone>
+	<!-- Main Radar -->
+    <radar>
+      <file>Aircraft/SR71/Nasal/radar2.nas</file> 
+    </radar>
+
+        <lockhelper>
+            <file>Aircraft/F-22/Nasal/lockhelper.nas</file><!-- my 3rd custom nasal script! :D -->
+        </lockhelper>
+    <missile>
+      <file>Aircraft/SR71/Nasal/weapons/missile.nas</file>
+      <file>Aircraft/SR71/Nasal/weapons/Loading_Missiles.nas</file>
+      <file>Aircraft/SR71/Nasal/weapons/missile_GroundTargeting.nas</file>
+    </missile>
+
+    <m2000_load>
+      <file>Aircraft/SR71/Nasal/weapons/ext_stores.nas</file>
+    </m2000_load>
+
+<armament>
+      <file>Aircraft/F-22/Nasal/weapons/missile-code.nas</file>
+</armament>  <!--OPRF Missile-code present Only for the RWR to work-->
+
+
+    <guns>
+      <file>Aircraft/SR71/Nasal/weapons.nas</file>
+    </guns>
+		 <f22>
+		<file>Aircraft/SR71/Nasal/radinit.nas</file>
+		</f22>
+    </nasal>
+	
+	<!-- setting up properties for later -->
+	<fdm n="0">
+		<jsbsim>
+			<fcs>
+				<fuel-pump0>0</fuel-pump0>
+				<fuel-pump1>0</fuel-pump1>
+			</fcs>
+			<structural>
+				<wings>
+					<serviceable type="bool">true</serviceable>
+				</wings>
+			</structural>
+		</jsbsim>
+	</fdm>
+
+</PropertyList>
+
+

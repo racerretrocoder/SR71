@@ -31,7 +31,7 @@ kids 0
 OBJECT poly
 name "Radar"
 loc 14.0233 3.51584 0.0120124
-texture "panel-fond.rgb"
+texture "textures/panel-fond.rgb"
 crease 45.000000
 numvert 24
 0.0837586 -0.135214 -0.108247
@@ -173,7 +173,7 @@ kids 0
 OBJECT poly
 name "Radar-Facade"
 loc 14.134 3.49431 0.0120124
-texture "panel-fond.rgb"
+texture "textures/panel-fond.rgb"
 crease 45.000000
 numvert 22
 0.0134346 0.0941504 -0.108247
@@ -420,7 +420,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Gabarit-Position-RSOPanel"
-loc 1.49012e-08 0 0
+loc 1.49012e-008 0 0
 crease 45.000000
 numvert 8
 -0.306071 0.492528 -0.523108
@@ -478,7 +478,7 @@ kids 0
 OBJECT poly
 name "Navi-PanelSup"
 loc -0.120451 -0.207939 0
-texture "panel-fond.rgb"
+texture "textures/panel-fond.rgb"
 crease 45.000000
 numvert 9
 0.0821304 0.193775 0
@@ -594,7 +594,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Navi-Tablette"
-loc -0.0190201 -0.144175 -9.31323e-10
+loc -0.0190201 -0.144175 -9.31323e-010
 crease 45.000000
 numvert 42
 -0.0895777 -0.166485 -0.108403

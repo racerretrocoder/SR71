@@ -361,9 +361,9 @@
         </contact>-->
     </ground_reactions>
 
-    <propulsion>
+   <propulsion>
         <property>fcs/intake-subsonic-pos</property>
-            <engine file="J58_engine">
+            <engine file="PPT-X3">
             <location unit="IN">
                 <x> 282 </x>
                 <y> -111.4 </y>
@@ -384,12 +384,12 @@
                 </location>
                 <orient unit="DEG">
                     <roll> 0.0 </roll>
-                    <pitch> 4.2971835</pitch>
+                    <pitch> 1.6042818264</pitch>
                     <yaw> 0.0 </yaw>
                 </orient>
             </thruster>
         </engine>
-        <engine file="J58_engine">
+        <engine file="PPT-X3">
             <location unit="IN">
                 <x> 282 </x>
                 <y> 111.4 </y>
@@ -410,17 +410,17 @@
                 </location>
                 <orient unit="DEG">
                     <roll> 0.0 </roll>
-                    <pitch> 4.2971835</pitch>
+                    <pitch> 1.6042818264</pitch>
                     <yaw> 0.0 </yaw>
                 </orient>
             </thruster>
         </engine>
 	<tank type="FUEL">
-		<location unit="M">
-		<x> 0.5 </x>
-		<y> 1 </y>
-		<z> 0.6 </z>
-		</location>
+        <location unit="IN">
+            <x> 10 </x>
+            <y> 0 </y>
+            <z> -32.3 </z>
+        </location>
 		<!--<drain_location unit="{FT | M | IN}">
 		<x> {number} </x>
 		<y> {number} </y>
@@ -436,11 +436,11 @@
 
 	<!-- Left Fuel Manifold-->
 	<tank type="FUEL">
-		<location unit="M">
-		<x> 0.5 </x>
-		<y> -1 </y>
-		<z> 0.6 </z>
-		</location>
+        <location unit="IN">
+            <x> 10 </x>
+            <y> 0 </y>
+            <z> -32.3 </z>
+        </location>
 		<!--<drain_location unit="{FT | M | IN}">
 		<x> {number} </x>
 		<y> {number} </y>
@@ -456,11 +456,11 @@
 	
 	<!-- 1A -->
 	<tank type="FUEL">
-		<location unit="M">
-		<x> -8.25 </x>
-		<y> 0 </y>
-		<z> 1.0 </z>
-		</location>
+        <location unit="IN">
+            <x> 10 </x>
+            <y> 0 </y>
+            <z> -32.3 </z>
+        </location>
 		<!--<drain_location unit="{FT | M | IN}">
 		<x> {number} </x>
 		<y> {number} </y>
@@ -475,11 +475,11 @@
 	</tank>
 	<!-- 1 -->
 	<tank type="FUEL">
-		<location unit="M">
-		<x> -7.80 </x>
-		<y> 0 </y>
-		<z> 0.6	</z>
-		</location>
+        <location unit="IN">
+            <x> 10 </x>
+            <y> 0 </y>
+            <z> -32.3 </z>
+        </location>
 		<!--<drain_location unit="{FT | M | IN}">
 		<x> {number} </x>
 		<y> {number} </y>
@@ -494,11 +494,11 @@
 	</tank>
 	<!-- 2 -->
 	<tank type="FUEL">
-		<location unit="M">
-		<x> -3.7 </x>
-		<y> 0 </y>
-		<z> 0.6 </z>
-		</location>
+        <location unit="IN">
+            <x> 10 </x>
+            <y> 0 </y>
+            <z> -32.3 </z>
+        </location>
 		<!--<drain_location unit="{FT | M | IN}">
 		<x> {number} </x>
 		<y> {number} </y>
@@ -513,11 +513,11 @@
 	</tank>
 	<!-- 3 -->
 	<tank type="FUEL">
-		<location unit="M">
-		<x> 0.5 </x>
-		<y> 0 </y>
-		<z> 0.6 </z>
-		</location>
+        <location unit="IN">
+            <x> 10 </x>
+            <y> 0 </y>
+            <z> -32.3 </z>
+        </location>
 		<!--<drain_location unit="{FT | M | IN}">
 		<x> {number} </x>
 		<y> {number} </y>
@@ -532,11 +532,11 @@
 	</tank>
 	<!-- 4 -->
 	<tank type="FUEL">
-		<location unit="M">
-		<x> 4 </x>
-		<y> 0 </y>
-		<z> 0.6 </z>
-		</location>
+        <location unit="IN">
+            <x> 10 </x>
+            <y> 0 </y>
+            <z> -32.3 </z>
+        </location>
 		<!--<drain_location unit="{FT | M | IN}">
 		<x> {number} </x>
 		<y> {number} </y>
@@ -551,11 +551,11 @@
 	</tank>
 	<!-- 5 -->
 	<tank type="FUEL">
-		<location unit="M">
-		<x> 7.5 </x>
-		<y> 0 </y>
-		<z> 0.6 </z>
-		</location>
+        <location unit="IN">
+            <x> 10 </x>
+            <y> 0 </y>
+            <z> -32.3 </z>
+        </location>
 		<!--<drain_location unit="{FT | M | IN}">
 		<x> {number} </x>
 		<y> {number} </y>
@@ -570,11 +570,11 @@
 	</tank>
 	<!-- 6A -->
 	<tank type="FUEL">
-		<location unit="M">
-		<x> 4 </x>
-		<y> 0 </y>
-		<z> 0.4 </z>
-		</location>
+        <location unit="IN">
+            <x> 10 </x>
+            <y> 0 </y>
+            <z> -32.3 </z>
+        </location>
 		<!--<drain_location unit="{FT | M | IN}">
 		<x> {number} </x>
 		<y> {number} </y>
@@ -589,11 +589,11 @@
 	</tank>
 	<!-- 6B -->
 	<tank type="FUEL">
-		<location unit="M">
-		<x> 6.5 </x>
-		<y> 0 </y>
-		<z> 0.4 </z>
-		</location>
+        <location unit="IN">
+            <x> 10 </x>
+            <y> 0 </y>
+            <z> -32.3 </z>
+        </location>
 		<!--<drain_location unit="{FT | M | IN}">
 		<x> {number} </x>
 		<y> {number} </y>
@@ -625,6 +625,32 @@
      <system file="orbital_parameters"/>
      <flight_control name="FCS: SR71">
 
+
+  <function name="fcs/aileron-space">
+      <table>
+        <independentVar lookup="row">fcs/aileron-pos-norm</independentVar>
+        <tableData>     
+		-1     0
+       -0.2    1      
+		 0     1
+        0.2    1
+         1     0       
+        </tableData>
+      </table>
+    </function>
+
+  <function name="fcs/rudder-space">
+      <table>
+        <independentVar lookup="row">fcs/rudder-pos-norm</independentVar>
+        <tableData>     
+		-1     0
+       -0.2    1      
+		 0     1
+        0.2    1
+         1     0       
+        </tableData>
+      </table>
+    </function>
 
 
 		<function name="velocities/course-deg">
@@ -1423,7 +1449,17 @@
                       </table>
                 </product>
             </function>
-
+            <function name="aero/coefficient/CmqSSS">
+                <description>roll_moment_due_to_roll_rate_space</description>
+                <product>
+                    <property>metrics/Sw-sqft</property>
+                    <property>metrics/cbarw-ft</property>
+                    <property>fcs/in-space-opposite</property>
+                    <property>fcs/aileron-space</property>
+                    <property>velocities/p-aero-rad_sec</property>
+                    <value>-20.0000</value>
+                </product>
+            </function>
         </axis>
 
         <axis name="PITCH">
@@ -1433,14 +1469,10 @@
            <value>1</value>
            <value>1</value>
        <product>
-
           
            <value>600000</value>
-
-
           <sin>
            <property>fcs/elevator-cmd-norm</property>
-
           </sin>
           <value>-4</value>
 
@@ -1448,6 +1480,20 @@
 
 </product>
     </function>
+
+
+
+            <function name="aero/coefficient/CmqS">
+                <description>Pitch_moment_due_to_pitch_rate_space</description>
+                <product>
+                    <property>metrics/Sw-sqft</property>
+                    <property>metrics/cbarw-ft</property>
+                    <property>fcs/in-space-opposite</property>
+                    <property>velocities/q-aero-rad_sec</property>
+                    <value>-180.0000</value>
+                </product>
+            </function>
+
 
             <function name="aero/coefficient/Cmalpha">
                 <description>Pitch_moment_due_to_alpha</description>
@@ -1537,6 +1583,19 @@
                     <value>-0.1500</value>
                 </product>
             </function>
+            <function name="aero/coefficient/CmqSS">
+                <description>Yaw_moment_due_to_yaw_rate_space</description>
+                <product>
+                    <property>metrics/Sw-sqft</property>
+                    <property>metrics/cbarw-ft</property>
+                    <property>fcs/in-space-opposite</property>
+                    <property>fcs/rudder-space</property>
+                    <property>velocities/r-aero-rad_sec</property>
+                    <value>-50.0000</value>
+                </product>
+            </function>
+
+
             <function name="aero/coefficient/Cndr">
                 <description>Yaw_moment_due_to_rudder</description>
                 <product>

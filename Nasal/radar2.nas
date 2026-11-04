@@ -91,7 +91,7 @@ var Radar = {
     new: func(){
         var m = { parents : [Radar]};
         m.loop_running  = 0;
-        m.rangeTab      = [5, 10, 20, 40, 60, 160, 300, 320, 3000]; # radar Ranges in nm
+        m.rangeTab      = [5, 10, 20, 40, 60, 160, 300, 320, 600, 800, 1000, 1500, 2000]; # radar Ranges in nm
         m.rangeIndex    = 2; # tab starts at index 1 so here it's 20
         m.RangeSelected = props.globals.getNode("instrumentation/radar/range-selected", 1);
         m.MyCoord       = geo.aircraft_position(); # this is when the radar is on our own aircraft. This part have to change if we want to put the radar on a missile/AI
@@ -149,7 +149,7 @@ var Radar = {
         me.maj_sweep();
         
         var loop_Update = func(){
-            var radarWorking = #getprop("/systems/electrical/outputs/radar");
+            var radarWorking = #getprop("/systems/electrical/outputs/radar"); idea, put standby trigger here
             27;
             radarWorking = (radarWorking == nil) ? 0 : radarWorking;
             if(radarWorking > 21)
@@ -664,6 +664,19 @@ var Radar = {
         {
             return;
         }
+        # RCS Stuff
+        if (getprop("/instrumentation/radar2/hasrcs") != nil) {
+            if (getprop("/instrumentation/radar2/hasrcs") == 1) {
+                # Small debug
+                append(me.Check_List, customrcs.getrcs(SelectedObject));
+                if(me.Check_List[3] == 0)
+                {
+                    return;
+                }
+            }
+        }
+
+        # Disabled for debug
   #      append(me.Check_List, me.NotBeyondHorizon(SelectedObject));
   #      if(me.Check_List[3] == 0)
   #      {
@@ -717,6 +730,7 @@ var Radar = {
             if(Target_Index > size(tgts_list) - 1)
             {
                 Target_Index = 0;
+                screen.log.write("displayTarget: Set index to 0");
             }
             var MyTarget = tgts_list[Target_Index];
             closeRange   = me.targetRange(MyTarget);
@@ -1275,7 +1289,7 @@ radar_mode_sel = func(mode){
         swp_diplay_width = 0.0422;
     }
 }
-
+# SEE f22.nas FOR THIS
 radar_mode_toggle = func(){
     # FIXME: Modes props should provide their own data instead of being hardcoded.
     # Toggles between the available modes.
@@ -1331,7 +1345,7 @@ elsif(getprop("instrumentation/radar/mode/main") == 3)
     }
 }
 
-next_Target_Index = func(canprint=0,canlock=1){
+next_Target_Index = func(cantprint=0,canlock=1){
     Target_Index += 1;
     #print(size(tgts_list));
     if(Target_Index > size(tgts_list) - 1)
@@ -1339,12 +1353,13 @@ next_Target_Index = func(canprint=0,canlock=1){
         Target_Index = 0;
     }
     if(GetTarget()!=nil){
-        if (canprint == 0){
+        if (cantprint == 0){
         screen.log.write("Radar: Locked "~tgts_list[Target_Index].Callsign.getValue(),1,1,0);
         }
         if (canlock == 1){
         setprop("instrumentation/radar/lock", 1);
         }
+        setprop("instrumentation/radar/cs",tgts_list[Target_Index].Callsign.getValue());
     }
 }
 
@@ -1372,6 +1387,7 @@ GetTarget = func(){
     if(Target_Index > size(tgts_list) - 1)
     {
         Target_Index = 0;
+        screen.log.write("Set to 0");
     }
     return tgts_list[Target_Index];
 }

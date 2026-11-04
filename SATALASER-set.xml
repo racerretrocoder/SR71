@@ -19,7 +19,7 @@
 
 
     <model>
-      <path>Aircraft/SR71/Models/Orbital Satellite Laser.xml</path>
+      <path>Aircraft/SR71/Models/SAT_LASER.xml</path>
     </model>
 
     <multiplay>
@@ -79,6 +79,14 @@
     </menu>
     </default>
   </menubar>
+
+
+        <systems>
+            <autopilot>
+                <path>Aircraft/SR71/Systems/SatAP.xml</path>
+            </autopilot>
+        </systems>
+
   </sim>
 
   <controls>
@@ -325,6 +333,9 @@
 			<weapons>
 				<file>Aircraft/SR71/Nasal/XSRWEAPON.nas</file>
 			</weapons>
+    <drone>
+		<file>Aircraft/SR71/Nasal/spacedrone.nas</file>
+		</drone>
 
   </nasal>
 
